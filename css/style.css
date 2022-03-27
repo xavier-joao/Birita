@@ -1,0 +1,333 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "poppins", sans-serif;
+    box-sizing: border-box;
+}
+/* #################### CABEÇALHO ####################  */ 
+.menu{
+    height: 100vh;
+    width: 100%;
+    padding: 0 8%;
+    position: relative;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    width: 350px;
+    height: 100px;
+    position:relative;
+
+}
+.nav-lista{
+    padding: 28px 0;
+}
+.nav-lista li{
+    display: inline-block;
+    margin: 0 15px; 
+}
+.nav-lista li a{
+    text-decoration: none;
+    color: white;
+    padding:5px 0;
+    position: relative;
+}
+.nav-lista li a::after{
+    content: '';
+    background: #961d4e;
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s;
+}
+.nav-lista li a:hover::after{
+    width: 100%;
+}
+.botao-registrar{
+    background: #961d4e;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* #################### TEXTO CENTRAL + BOTAO REGISTRO ####################  */ 
+
+.conteudo{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 90%;
+    max-width: 900px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    padding-top: 50px;
+}
+.conteudo h1{
+    font-size: 65px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.conteudo button{
+    background: #961d4e;
+    color: #fff;
+    padding: 15px 40px;
+    border: none;
+    font-size: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* #################### CARDS MAIS VENDIDOS ####################  */ 
+
+.div-card{
+    width: 400px;
+    height: 580px;
+    background-color: #fff;
+    border-radius: 10px;
+    float: left;
+    text-align: center;
+    margin:5px;
+
+}
+
+.box-cards{
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    color: black;
+    font-weight: 400;
+    background-color: #b8b8b89a;
+}
+
+.div-card-img img{
+    width: fit-content;
+    height: 450px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.div-card-descricao{
+    width: 100%;
+    font-size: 23px;
+    height: 77px;
+    padding-top: 5px;
+}
+
+.div-card-comprar{
+    background: #961d4e;
+    color: white;
+    height: 50px;
+    font-size: 30px;
+    cursor: pointer;
+    padding-top: 7px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.div-card-comprar:hover{
+    background-color: #961d4e;
+    color: black;
+}
+
+.div-card-comprado{
+    background-color: #961d4e;
+}
+
+.div-card-comprado:hover{
+    background-color: #961d4e;
+    color: black;
+}
+
+.div-preco-main{
+    text-align: center;
+    padding-top:10px;  
+}
+
+/* #################### VIDEO FUNDO TEXTO CENTRAL ####################  */ 
+
+.fundo-video{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+}
+@media(min-aspect-ratio:16/9){
+    .fundo-video{
+        width: 100%;
+        height: auto;
+    }
+}
+@media(max-aspect-ratio:16/9){
+    .fundo-video{
+        width: auto;
+        height: 100%;
+    }
+}
+
+/* #################### CABEÇALHO ####################  */ 
+
+.cabecalho{
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #961d4d9a;
+    color: white;
+    font-weight: 600;
+}
+
+
+
+/* #################### VIDEO DEMO ####################  */ 
+
+.video-mainpage{
+    background-color: #8f8f8f;
+    padding-bottom: 20px;
+}
+.video-mainpage h1{
+    color: white;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.video-mainpage video{
+    height: 70%;
+    width: 70%;
+    margin: 0 auto;
+    display: block;
+    border: 10px solid #ececec54;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* #################### AREA DE DEPOIMENTOS ####################  */ 
+
+.depoimento{
+    width: 100%;
+    height: 80vh;
+    background-image: url(../img/imagemfundo.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .9;
+}
+
+
+.depoimento input, textarea{
+    width: 800px;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: .3s;
+    font-size: 25px
+}
+
+.depoimento input:focus, textarea:focus{
+    border-color: #961d4e;
+    box-shadow: 0 0 8px 0 #961d4e;
+}
+
+.inputs{
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.depoimento label{
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    color:#aaa;
+    cursor: text;
+}
+
+.depoimento button{
+    background: #961d4e;
+    color: #fff;
+    padding: 10px 30px;
+    border: none;
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 800px;
+}
+
+.depoimento form{
+    background-color:#6b6b6bad;
+    border: 20px solid #6b6b6b52;
+    border-radius: 10px;
+}
+
+.depoimento h1{
+    font-size: 65px;
+    font-weight: 600;
+    color: white;
+    text-align: left;
+    background-color: #6b6b6bce;
+    width: 600px;
+    padding-left: 7px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius:  10px;
+}
+
+/* #################### ENDERECO E CONTATO ####################  */
+ 
+.endereco-contato{
+    text-align: center;
+    padding-top: 1.2%;
+    padding-bottom: 1.2%;
+    background-color: #5d5d5daf;
+    color: white;
+    font-weight: 500;
+}
+
+.endereco-contato a{
+    padding-left: 3%;
+}
+
+/* #################### RODAPE ####################  */ 
+
+.rodape{
+    text-align: center;
+    padding-top: 1.2%;
+    padding-bottom: 1.2%;
+    background-color: #292929af;
+}
+
+.rodape h1{
+    color: white;
+    font-size: 40px;
+    padding-bottom: 2%;
+    padding-top: 1.2%;
+}
+
+.rodape li{
+    padding-left: 1.2%;
+    padding-bottom: 2.2%;
+}
+
+.rodape li a{
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 30px;
+    color: white;
+}

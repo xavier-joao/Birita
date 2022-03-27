@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "poppins", sans-serif;
+    box-sizing: border-box;
+}
+.menu{
+    height: 200%;
+    width: 100%;
+    padding: 0;
+    background-color: #f98c25;
+    font-family: "poppins", sans-serif;
+    position: relative;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    width: 140px;
+}
+.nav-lista{
+    padding: 28px 0;
+}
+.nav-lista li{
+    display: inline-block;
+    margin: 0 15px; 
+}
+.nav-lista li a{
+    text-decoration: none;
+    color: white;
+    padding:5px 0;
+    position: relative;
+}
+.nav-lista li a::after{
+    content: '';
+    background: #FF5F26;
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s;
+}
+.nav-lista li a:hover::after{
+    width: 100%;
+}
+.text-center{
+	color:#3996FF;	
+	text-transform:uppercase;
+    font-size: 30px;
+    font-weight: 600;
+    margin: -50px 0 80px 0;
+    display: block;
+    text-align: center;
+}
+.box{
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+    background-color: #FEF8DD;
+	border-radius:3px;
+	padding:70px 100px;
+}
+
+.input-container{
+	position:relative;
+	margin-bottom:25px;
+}
+.input-container label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:25px;
+    color:#3996FF;	
+	transition: all 0.5s ease-in-out;
+}
+.input-container input{ 
+  border:0;
+  border-bottom:1px solid #2D9A0B;  
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:12px;
+  color:#FF5F26;
+}
+.input-container input:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:1px solid #f98c25;	
+}
+.btn{
+	color:#FEF8DD;
+	background-color:#FF5F26;
+	outline: none;
+    border: 0;
+    color: #FEF8DD;
+	padding:10px 20px;
+	text-transform:uppercase;
+	margin-top:50px;
+	border-radius:2px;
+	cursor:pointer;
+	position:relative;
+}
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+	top:-12px;
+	font-size:16px;
+	font-weight: 400;
+}

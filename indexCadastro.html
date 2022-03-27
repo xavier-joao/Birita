@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/styleLogin&Cadastro.css">
+        <script src="js/scriptLogin&Cadastro.js"></script>
+    </head>
+
+    <body>
+        <div class="menu">
+            <nav>
+                <img src="img/logo.png" class="logo">
+                <ul class="nav-lista">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="indexLogin.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="box">
+            <form>
+                <span class="text-center">Cadastro</span>
+            <div class="input-container">
+                <input type="text" id="email"/>
+                <label>Email</label>		
+            </div>
+            <div class="input-container">
+                <input type="text" id="nome"/>
+                <label>Nome</label>		
+            </div>
+            <div class="input-container">		
+                <input type="password" id="senha"/>
+                <label>Senha</label>
+            </div>
+            <div class="input-container">		
+                <input type="password" id="confirmSenha"/>
+                <label>Confirmar Senha</label>
+            </div>
+                <button type="button" class="btn" onclick="cadastro()">submit</button>
+            </form>	
+        </div>
+        
+    </body>
+</html>
