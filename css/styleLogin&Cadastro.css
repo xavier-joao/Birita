@@ -168,7 +168,7 @@ form {
 .input-container input:focus{ 
  border:none;	
  outline:none;
- border-bottom:1px solid #3fd5fe;	
+ border-bottom:1px solid;	
 }
 
 .btn{
