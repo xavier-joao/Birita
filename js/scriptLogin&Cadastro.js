@@ -1,3 +1,10 @@
+const toggleButton = document.getElementsByClassName('toggle-button')[0]
+const navbarLista = document.getElementsByClassName('navbar-lista')[0]
+
+toggleButton.addEventListener('click', () => {
+    navbarLista.classList.toggle('active')
+})
+
 
 function login(){
     var usersList = JSON.parse(localStorage.getItem("usuarios"))
