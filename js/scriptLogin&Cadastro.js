@@ -99,7 +99,7 @@ function enviarEmail() {
 }
 
 function alertaModal (texto) {
-    var myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
+    var myModal = new bootstrap.Modal(document.getElementById('promptModal'))
         document.getElementById("modalBody").innerHTML = '<h7>' + texto;
         myModal.show()
 }
