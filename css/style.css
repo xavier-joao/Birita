@@ -31,13 +31,13 @@ nav{
 }
 .nav-lista li a{
     text-decoration: none;
-    color: white;
+    color: #FEF8DD;
     padding:5px 0;
     position: relative;
 }
 .nav-lista li a::after{
     content: '';
-    background: #961d4e;
+    background: #FF5F26;
     width: 0%;
     height: 2px;
     position: absolute;
@@ -49,8 +49,8 @@ nav{
     width: 100%;
 }
 .botao-registrar{
-    background: #961d4e;
-    color: #fff;
+    background: #FF5F26;
+    color: #FEF8DD;
     padding: 10px 30px;
     border-radius: 3px;
     cursor: pointer;
@@ -66,7 +66,7 @@ nav{
     max-width: 900px;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white;
+    color: #FEF8DD;
     padding-top: 50px;
 }
 .conteudo h1{
@@ -76,8 +76,8 @@ nav{
 }
 
 .conteudo button{
-    background: #961d4e;
-    color: #fff;
+    background: #FF5F26;
+    color: #FEF8DD;
     padding: 15px 40px;
     border: none;
     font-size: 20px;
@@ -85,72 +85,6 @@ nav{
     cursor: pointer;
 }
 
-/* #################### CARDS MAIS VENDIDOS ####################  */ 
-
-.div-card{
-    width: 400px;
-    height: 580px;
-    background-color: #fff;
-    border-radius: 10px;
-    float: left;
-    text-align: center;
-    margin:5px;
-
-}
-
-.box-cards{
-    height: 65vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    color: black;
-    font-weight: 400;
-    background-color: #b8b8b89a;
-}
-
-.div-card-img img{
-    width: fit-content;
-    height: 450px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.div-card-descricao{
-    width: 100%;
-    font-size: 23px;
-    height: 77px;
-    padding-top: 5px;
-}
-
-.div-card-comprar{
-    background: #961d4e;
-    color: white;
-    height: 50px;
-    font-size: 30px;
-    cursor: pointer;
-    padding-top: 7px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.div-card-comprar:hover{
-    background-color: #961d4e;
-    color: black;
-}
-
-.div-card-comprado{
-    background-color: #961d4e;
-}
-
-.div-card-comprado:hover{
-    background-color: #961d4e;
-    color: black;
-}
-
-.div-preco-main{
-    text-align: center;
-    padding-top:10px;  
-}
 
 /* #################### VIDEO FUNDO TEXTO CENTRAL ####################  */ 
 
@@ -241,8 +175,7 @@ nav{
 }
 
 .depoimento input:focus, textarea:focus{
-    border-color: #961d4e;
-    box-shadow: 0 0 8px 0 #961d4e;
+    border-color: #FF5F26;
 }
 
 .inputs{
@@ -261,7 +194,7 @@ nav{
 }
 
 .depoimento button{
-    background: #961d4e;
+    background: #FF5F26;
     color: #fff;
     padding: 10px 30px;
     border: none;

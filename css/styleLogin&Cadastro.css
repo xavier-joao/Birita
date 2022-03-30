@@ -5,6 +5,7 @@
     font-family: "poppins", sans-serif;
     box-sizing: border-box;
 }
+
 .menu{
     height: 200%;
     width: 100%;
@@ -13,6 +14,7 @@
     font-family: "poppins", sans-serif;
     position: relative;
 }
+
 nav{
     display: flex;
     align-items: center;
@@ -36,7 +38,7 @@ nav{
 }
 .nav-lista li a::after{
     content: '';
-    background: #FF5F26;
+    background: #2D9A0B;
     width: 0%;
     height: 2px;
     position: absolute;
@@ -48,7 +50,7 @@ nav{
     width: 100%;
 }
 .text-center{
-	color:#3996FF;	
+	color:#0090c3;	
 	text-transform:uppercase;
     font-size: 30px;
     font-weight: 600;
@@ -57,7 +59,7 @@ nav{
     text-align: center;
 }
 .box{
-	position:absolute;
+    position: absolute;
 	left:50%;
 	top:50%;
 	transform: translate(-50%,-50%);
@@ -66,16 +68,21 @@ nav{
 	padding:70px 100px;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
 .input-container{
 	position:relative;
-	margin-bottom:25px;
+	margin-bottom:1.5rem;
 }
 .input-container label{
 	position:absolute;
 	top:0px;
 	left:0px;
 	font-size:25px;
-    color:#3996FF;	
+    color:#0090c3;	
 	transition: all 0.5s ease-in-out;
 }
 .input-container input{ 
@@ -90,8 +97,9 @@ nav{
 .input-container input:focus{ 
  border:none;	
  outline:none;
- border-bottom:1px solid #f98c25;	
+ border-bottom:1px solid #277a0e;	
 }
+
 .btn{
 	color:#FEF8DD;
 	background-color:#FF5F26;
@@ -106,9 +114,26 @@ nav{
 	position:relative;
 }
 
+.btn:hover{
+    background-color: #ff6a34;
+}
+
+#forgot-pass {
+    display: block;
+    text-align: right;
+    color: #0090c3;
+    text-decoration: underline;
+    font-size: 10px;
+}
+
+#forgot-pass:hover {
+    font-weight: bold;
+}
+
 .input-container input:focus ~ label,
 .input-container input:valid ~ label{
 	top:-12px;
 	font-size:16px;
 	font-weight: 400;
 }
+

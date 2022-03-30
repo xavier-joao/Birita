@@ -15,12 +15,12 @@ function login(){
             }
         }
         if(usuarioEncontrado){
-            alert("Login realizado com sucesso")
+            alertaModal("Login realizado com sucesso")
         }else{
-            alert("Login incorreto tente novamente")
+            alertaModal("Login incorreto tente novamente")
         }
     }else{
-        alert("Login incorreto tente novamente")
+        alertaModal("Login incorreto tente novamente")
     }
 
     var email = document.getElementById("email").value = ""
@@ -31,19 +31,18 @@ function cadastro(){
     var email = document.getElementById("email").value
     var nome = document.getElementById("nome").value
     var senha = document.getElementById("senha").value
-
     var senhaConfirm = document.getElementById("confirmSenha").value
 
     
-    if(nome != '' && senha != '') {
+    if(nome != '' && senha != '' && email != '') {
         if (validaSenha(senha)) {
             if (validaEmail(email)){
                 if(senha != senhaConfirm) {
-                    alert("As senhas não coincidem")
+                    alertaModal("As senhas não coincidem")
                     var senha = document.getElementById("senha").value = ""
                     var senhaConfirm = document.getElementById("confirmSenha").value = ""
                 } else {
-                    alert("Cadastro realizado com sucesso!")
+                    alertaModal("Cadastro realizado com sucesso!")
                     var usersList = JSON.parse(localStorage.getItem("usuarios"))
                     var usuario = [ email, senha, nome ]
                     if (usersList != null) {
@@ -52,17 +51,57 @@ function cadastro(){
                     }else {
                         var list = [usuario]
                         window.localStorage.setItem("usuarios", JSON.stringify(list));
-                    }    
+                    }
+                    window.location.href = "index.html";    
                 }
             } else {
-                alert("Deve conter um email válido, por exemplo: exemplo@exemplo.com")
+                alertaModal("Deve conter um email válido, por exemplo: exemplo@exemplo.com")
             }
         } else {
-            alert("A senha deve conter no mínimo 8 caracteres, sendo obrigatório, no mínimo, um número, uma letra maiúscula e minúscula e um caracter especial!")
+            alertaModal("A senha deve conter no mínimo 8 caracteres, sendo obrigatório, no mínimo, um número, uma letra maiúscula e minúscula e um caracter especial!")
         }        
     } else {
-        alert("Usuário e senha não podem ficar em branco")
+        alertaModal("Email e senha não podem ser nulos")
     }
+}
+
+function recuperaSenha(){
+    var codigo = document.getElementById("codigo").value;
+    var senha = document.getElementById("senha").value
+    var senhaConfirm = document.getElementById("confirmSenha").value
+
+    if (codigo != '') {
+        if (senha != '') {
+            if (validaSenha(senha)){
+                if (senha != senhaConfirm){
+                    alertaModal("As senhas não coicidem!")
+                    var senha = document.getElementById("senha").value = ""
+                    var senhaConfirm = document.getElementById("confirmSenha").value = ""
+                } else {
+                    alertaModal("Senha alterada com sucesso!")
+                }
+                window.location.href = "indexLogin.html"
+            } else {
+                alertaModal("A senha deve conter no mínimo 8 caracteres, sendo obrigatório, no mínimo, um número, uma letra maiúscula e minúscula e um caracter especial!") 
+            }
+        } else {
+            alertaModal("A senha não pode ser nula!")
+        }
+    } else {
+        alertaModal("Por favor, digite o código enviado para o email cadastrado!")
+    }
+
+}
+
+function enviarEmail() {
+    var myModal = new bootstrap.Modal(document.getElementById('senhaRecuperacao'))
+    myModal.show()
+}
+
+function alertaModal (texto) {
+    var myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
+        document.getElementById("modalBody").innerHTML = '<h7>' + texto;
+        myModal.show()
 }
 
 function validaSenha (senha){
@@ -76,3 +115,4 @@ function validaEmail (email){
 
     return testaEmail.test(email)
 }
+
