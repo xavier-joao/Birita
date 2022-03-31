@@ -8,36 +8,64 @@
 }
 
 /* #################### CABEÇALHO ####################  */ 
-.menu{
-    height: 100vh;
+.container{
     width: 100%;
-    padding: 0 8%;
-    position: relative;
-    
+    min-height: 100vh;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+
+.navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.logo{
+    width: 50%;
+    cursor: pointer;
+    margin: 30px 0;
+}
+.menu-icon{
+    width: 25px;
+    cursor: pointer;
 }
 
 nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex: 1;
+    text-align: right;
 }
-.logo{
-    width: 140px;
-}
-.nav-lista{
-    padding: 28px 0;
-}
-.nav-lista li{
+
+nav ul li{
+    list-style: none;
     display: inline-block;
-    margin: 0 15px; 
+    margin-right: 30px;
 }
-.nav-lista li a{
+
+.botao-registrar{
+    background-color: #ddd;
+    border: none;
+    color: black;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.botao-registrar:hover { 
+    background-color: #3e8e41;
+    color: white;
+}
+
+.navbar li a{
     text-decoration: none;
-    color: #FEF8DD;
+    color: #191923;
     padding:5px 0;
     position: relative;
 }
-.nav-lista li a::after{
+.navbar li a::after{
     content: '';
     background: #2D9A0B;
     width: 0%;
@@ -47,8 +75,10 @@ nav{
     left: 0;
     transition: width 0.5s;
 }
-.nav-lista li a:hover::after{
+.navbar li a:hover::after{
     width: 100%;
+        transition: width 0.5s;
+
 }
 
 
@@ -56,167 +86,53 @@ nav{
 
 
 .conteudo{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 90%;
-    max-width: 900px;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #FEF8DD;
-    padding-top: 50px;
-}
-.conteudo h1{
-    font-size: 65px;
-    font-weight: 600;
-    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 100px 0;
 }
 
-.conteudo button{
-    background: #FF5F26;
+.col-1{
+    flex-basis: 40%;
+    position: relative;
+    margin-left: 50px;
+}
+.col-1 h2{
+    font-size: 54px;
+}
+
+.col-1 h3{
+    font-size: 30px;
+    color: #707070;
+    font-weight: 100;
+    margin: 12px 0 10px
+}
+
+
+button{
     color: #FEF8DD;
-    padding: 15px 40px;
+    padding: 12px 10px;
     border: none;
-    font-size: 20px;
     border-radius: 6px;
     cursor: pointer;
+    background: linear-gradient(to right, #fb5283, #ff3527);
+    transition: width 0.5s;
 }
 
-
-/* #################### VIDEO FUNDO TEXTO CENTRAL ####################  */ 
-
-.fundo-video{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-}
-@media(min-aspect-ratio:16/9){
-    .fundo-video{
-        width: 100%;
-        height: auto;
-    }
-}
-@media(max-aspect-ratio:16/9){
-    .fundo-video{
-        width: auto;
-        height: 100%;
-    }
+button img{
+    width: 30px;
+    display: none;
 }
 
-/* #################### CABEÇALHO ####################  */ 
-
-.cabecalho{
-    text-align: center;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    background-color: #961d4d9a;
-    color: white;
-    font-weight: 600;
-}
-
-
-
-/* #################### VIDEO DEMO ####################  */ 
-
-.video-mainpage{
-    background-color: #8f8f8f;
-    padding-bottom: 20px;
-}
-.video-mainpage h1{
-    color: white;
-    text-align: center;
-    margin: auto;
-    padding-bottom: 20px;
-}
-
-.video-mainpage video{
-    height: 70%;
-    width: 70%;
-    margin: 0 auto;
+button:hover img{
     display: block;
-    border: 10px solid #ececec54;
-    border-radius: 5px;
-    box-sizing: border-box;
 }
 
-/* #################### AREA DE DEPOIMENTOS ####################  */ 
-
-.depoimento{
-    width: 100%;
-    height: 80vh;
-    background-image: url(../img/imagemfundo.jpg);
-    background-position: center;
-    background-size: cover;
+button:hover{
+    width: 160px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    opacity: .9;
-}
-
-
-.depoimento input, textarea{
-    width: 800px;
-    border: 2px solid #aaa;
-    border-radius: 4px;
-    margin: 8px 0;
-    outline: none;
-    padding: 20px;
-    box-sizing: border-box;
-    transition: .3s;
-    font-size: 25px
-}
-
-.depoimento input:focus, textarea:focus{
-    border-color: #FF5F26;
-}
-
-.inputs{
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.depoimento label{
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 10px;
-    color:#aaa;
-    cursor: text;
-}
-
-.depoimento button{
-    background: #FF5F26;
-    color: #fff;
-    padding: 10px 30px;
-    border: none;
-    font-size: 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 800px;
-}
-
-.depoimento form{
-    background-color:#6b6b6bad;
-    border: 20px solid #6b6b6b52;
-    border-radius: 10px;
-}
-
-.depoimento h1{
-    font-size: 65px;
-    font-weight: 600;
-    color: white;
-    text-align: left;
-    background-color: #6b6b6bce;
-    width: 600px;
-    padding-left: 7px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius:  10px;
+    justify-content: space-between;
 }
 
 /* #################### ENDERECO E CONTATO ####################  */
