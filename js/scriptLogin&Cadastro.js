@@ -1,10 +1,16 @@
-const toggleButton = document.getElementsByClassName('toggle-button')[0]
-const navbarLista = document.getElementsByClassName('navbar-lista')[0]
+var btnSignin = document.querySelector("#signin");
+var btnSignup = document.querySelector("#signup");
 
-toggleButton.addEventListener('click', () => {
-    navbarLista.classList.toggle('active')
+var body = document.querySelector("body");
+
+
+btnSignin.addEventListener("click", function () {
+   body.className = "sign-in-js"; 
+});
+
+btnSignup.addEventListener("click", function () {
+    body.className = "sign-up-js";
 })
-
 
 function login(){
     var usersList = JSON.parse(localStorage.getItem("usuarios"))
