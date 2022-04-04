@@ -47,29 +47,15 @@ nav ul li{
     margin-right: 30px;
 }
 
-.botao-registrar{
-    background-color: #ddd;
-    border: none;
-    color: black;
-    border-radius: 6px;
-    cursor: pointer;
-    padding: 15px 30px;
-    text-align: center;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.botao-registrar:hover { 
-    background-color: #3e8e41;
-    color: white;
-}
 
 .navbar li a{
     text-decoration: none;
     color: #191923;
     padding:5px 0;
-    position: relative;
+    position: right;
+    font-size: larger;
 }
+
 .navbar li a::after{
     content: '';
     background: #2D9A0B;
