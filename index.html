@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
 
-  <title>MEUSDRINKS | Biblioteca de drinks</title>
+  <title>birita</title>
   <meta name="descricao" content="Site de receitas de drinks e bebidas">
-  <meta name="autor" content="MEUSDRINKS">
+  <meta name="autor" content="birita">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="HandheldFriendly" content="true">
@@ -21,16 +21,15 @@
 
   <div clas="container">
     <div class="navbar">
-      <img src="img/logo.png" class="logo">
+      <a href="index.html"><img src="img/logo.png" class="logo"></a>
       <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
+        <ul id="menuList">
           <li><a href="indexBiblioteca">Drincoteca</a></li>
           <li><a href="indexLogin.html">Login</a></li>
-          <li class="botao-registrar">Registrar<a href="indexCadastro.html"></a></li>
+          <li><a href="indexCadastro.html">Registrar</a></li>
         </ul>
       </nav>
-      <img src="img/menu.png" class="menu-icon">
+      <img src="img/menu.png" class="menu-icon" onclick="togglemenu()">
     </div>
   </div>
 
@@ -41,37 +40,35 @@
           <h2>Descubra sabores<br>
             com os ingredientes da sua casa!</h2>
             <h3>Encontre os drinks perfeitos com o que você tem em casa.</h3>
-            <button type="button">Acessar Drincoteca<img src="img/arrow.png"></button>
+            <button type="button">Acessar <br> Drincoteca<img src="img/arrow.png"></button>
         </div>
         <div class="col-2">
-
+          <img src="img/drinkindex.png" class="drinkindex">
+          <div class="color-box"></div>
         </div>
       </div>
   </div>
 
+  <div class="social-links">
+    <img src="img/fb.png">
+    <img src="img/tw.png">
+    <img src="img/ig.png">
+  </div>
 
 
+  <script>
 
+    var menuList = document.getElementById("menuList");
 
-<!--#################### ENDEREÇO E CONTATO #################### -->
+    menuList.style.maxHeight = "0px";
 
-<div class="endereco-contato">
-  <a> <i class="fas fa-map-marked-alt"></i> R. Gelo, 1482</a>
-  <a> <i class="fas fa-phone"></i>  +12 34 556789012</a>
-  <a> <i class="fas fa-envelope"></i> meusdrinks@naoexiste.com</a>
-</div>
-
-<!--#################### RODAPÉ #################### -->
-
-<div class="rodape">
-  <h1>Acompanhe nas redes sociais!</h1>
-  <ul class="social">
-    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i>  @meusdrinks</href></a></li>
-    <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i>  Meus drinks</href></a></li>
-    <li><a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i> @meusdrinks</href></a></li>
-  </ul>
-</div>
-
-
+    function togglemenu(){
+      if(menuList.style.maxHeight == "0px"){
+        menuList.style.maxHeight = "130px"
+      }else{
+        menuList.style.maxHeight = "0px";
+      }
+    }
+  </script>
 </body>
 </html>
