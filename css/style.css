@@ -13,6 +13,8 @@
     min-height: 100vh;
     padding-left: 8%;
     padding-right: 8%;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 
@@ -20,18 +22,18 @@
     width: 100%;
     display: flex;
     align-items: center;
+    padding-bottom: 8vh;
 }
+
 .logo{
     float: left;
-    width: 50%;
+    width: 50px;
     cursor: pointer;
     margin: 30px 0;
 
 }
 .menu-icon{
     width: 25px;
-    margin: 30px;
-    padding-bottom: 40px;
     cursor: pointer;
     display: none;
 }
@@ -47,29 +49,15 @@ nav ul li{
     margin-right: 30px;
 }
 
-
-.navbar li a{
+nav ul li a{
     text-decoration: none;
-    color: #191923;
-    padding:5px 0;
-    position: right;
+    color: #000;
     font-size: larger;
 }
 
-.navbar li a::after{
-    content: '';
-    background: #2D9A0B;
-    width: 0%;
-    height: 2px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: width 0.5s;
-}
-.navbar li a:hover::after{
-    width: 100%;
-        transition: width 0.5s;
 
+nav ul li a:hover{
+    color: #ff3527;
 }
 
 
@@ -186,7 +174,8 @@ nav ul li{
         background: linear-gradient(#fb5283, #ff3527);
         position: absolute;
         top: 82px;
-        right: 0;
+        right:0;
+        left:0;
         z-index: 2;
     }
 
@@ -201,9 +190,10 @@ nav ul li{
         margin-bottom: 10px;
     }
 
-    nav li a{
+    .navbar li a{
         color: #fff;
     }
+    
 
     #menuList{
         overflow: hidden;
@@ -213,6 +203,7 @@ nav ul li{
     .conteudo{
         flex-direction: column-reverse;
         margin: 50px 0;
+        margin-top: 15vh;
     }
 
     .col-2{
@@ -236,6 +227,7 @@ nav ul li{
     .col-1 h2{
         font-size: 35px;
     }
+
     .col-1 h3{
         font-size: 15px;
     }
