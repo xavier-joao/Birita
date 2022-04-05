@@ -532,7 +532,7 @@ input:-webkit-autofill
         }
     
         to {
-            top: 60%;
+            top: 50%;
             height: 40%;
         }
     }
