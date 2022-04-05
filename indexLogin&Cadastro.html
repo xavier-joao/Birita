@@ -10,6 +10,21 @@
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 <body>
+    <!--#################### MENU #################### -->
+    <div class="box-menu">
+        <div class="navbar">
+            <a href="index.html"><img src="" class="logo"></a>
+            <nav>
+              <ul id="menuList">
+                <li><a href="indexBiblioteca">Drincoteca</a></li>
+                <li><a href="indexLogin.html">Login</a></li>
+                <li><a href="indexCadastro.html">Registrar</a></li>
+              </ul>
+            </nav>
+            <img src="img/menu.png" class="menu-icon" onclick="togglemenu()">
+          </div>
+    </div>
+    
     <div class="container">
         <div class="content first-content">
             <div class="first-column">
@@ -75,5 +90,19 @@
         </div><!-- second-content -->
         </div>
     <script src="js/scriptLogin&Cadastro.js"></script>
+    <script>
+
+        var menuList = document.getElementById("menuList");
+    
+        menuList.style.maxHeight = "0px";
+    
+        function togglemenu(){
+          if(menuList.style.maxHeight == "0px"){
+            menuList.style.maxHeight = "130px"
+          }else{
+            menuList.style.maxHeight = "0px";
+          }
+        }
+      </script>
 </body>
 </html>

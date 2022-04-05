@@ -6,13 +6,68 @@
     box-sizing: border-box;
 }
 body {
-    font-family: 'poppins', sans-serif;
+    font-family: 'helvetica', sans-serif;
 }
+
+/* #################### MENU ####################  */ 
+.box-menu{
+    width: 100%;
+    min-height: 15vh;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+.navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-bottom: 8vh;
+}
+
+.logo{
+    float: left;
+    width: 50px;
+    cursor: pointer;
+    margin: 30px 0;
+
+}
+.menu-icon{
+    width: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #000;
+    font-size: larger;
+}
+
+
+nav ul li a:hover{
+    color: #ff3527;
+}
+
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 85vh;
     background-color: #ecf0f1;
 }
 .content {
@@ -208,13 +263,13 @@ input:-webkit-autofill
 
     z-index: -1;
     position: relative;
-    animation: deslocamentoEsq 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
+    animation: deslocamentoEsq 1.3s;
 }
 
 .sign-up-js .second-content .second-column {
     position: relative;
     z-index: -1;
-    animation: deslocamentoDir 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
+    animation: deslocamentoDir 1.3s; 
 }
 
 /*ANIMAÇÃOO CSS PARA O CONTEÚDO*/
@@ -230,13 +285,11 @@ input:-webkit-autofill
     25% {
         left: -80px;
         opacity: .5;
-        /* z-index: 12; NÃO HÁ NECESSIDADE */
     }
 
     50% {
         left: -100px;
         opacity: .2;
-        /* z-index: 12; NÃO HÁ NECESSIDADE */
     }
 
     to {
@@ -256,13 +309,10 @@ input:-webkit-autofill
 
     25% {
         left: 80px;
-        /* z-index: 12;  NÃO HÁ NECESSIDADE*/
     }
 
     50% {
         left: 100px;
-        /* z-index: 12; NÃO HÁ NECESSIDADE*/
-        /* background-color: yellow;  Exemplo que dei no vídeo*/
     }
 
     to {
@@ -330,8 +380,51 @@ input:-webkit-autofill
     }
 }
 
-/*VERSÃO MOBILE*/
+/*##################### RESPONSIVIDADE #####################*/
 @media screen and (max-width: 1040px) {
+    .menu-icon{
+        display: block;
+    }
+
+    nav ul{
+        width: 100%;
+        background: linear-gradient(#fb5283, #ff3527);
+        position: sticky;
+        top: 82px;
+        right:0;
+        left:0;
+        z-index: 2;
+    }
+
+    .navbar{
+        height: 20vh;
+    }
+    
+    .navbar li a::after{
+        display: none;
+        height: 0px;
+    }
+
+    nav ul li{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .navbar li a{
+        color: #fff;
+    }
+    
+
+    #menuList{
+        overflow: hidden;
+        transition: 0.5s;
+    }
+
+    .container {
+        height: 85vh;
+    }
+    
     .content {
         width: 100%;
         height: 100%;
@@ -339,10 +432,11 @@ input:-webkit-autofill
 
     .content::before {
         width: 100%;
-        height: 40%;
+        height: 38%;
         top: 0;
         border-radius: 0;
     }
+
     .first-content, .second-content {
         flex-direction: column;
         justify-content: space-around;
@@ -350,10 +444,11 @@ input:-webkit-autofill
 
     .first-column, .second-column {
         width: 100%;
+        height: 100%;
     }
     
     .sign-in-js .content::before {
-        top: 60%;
+        top: 50%;
         left: 0;
         border-radius: 0;
 
@@ -376,13 +471,11 @@ input:-webkit-autofill
         25% {
             top: -80px;
             opacity: .5;
-            /* z-index: 12; NÃO HÁ NECESSIDADE */
         }
     
         50% {
             top: -100px;
             opacity: .2;
-            /* z-index: 12; NÃO HÁ NECESSIDADE */
         }
     
         to {
@@ -402,13 +495,10 @@ input:-webkit-autofill
     
         25% {
             top: 80px;
-            /* z-index: 12;  NÃO HÁ NECESSIDADE*/
         }
     
         50% {
             top: 100px;
-            /* z-index: 12; NÃO HÁ NECESSIDADE*/
-            /* background-color: yellow;  Exemplo que dei no vídeo*/
         }
     
         to {
@@ -474,7 +564,6 @@ input:-webkit-autofill
             height: 40%;
         }
     }
-   
 }
 
 @media screen and (max-width: 740px) {
