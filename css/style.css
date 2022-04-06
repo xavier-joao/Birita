@@ -26,9 +26,10 @@
 
 .logo{
     float: left;
-    width: 50px;
+    width: 200px;
     cursor: pointer;
     margin: 30px 0;
+
 
 }
 .menu-icon{
@@ -50,13 +51,13 @@ nav ul li{
 
 nav ul li a{
     text-decoration: none;
-    color: #000;
+    color: #3AB9CF;
     font-size: larger;
 }
 
 
 nav ul li a:hover{
-    color: #3AB9CF;
+    color: #9B4FE3;
 }
 
 
@@ -170,12 +171,12 @@ nav ul li a:hover{
 
     nav ul{
         width: 100%;
-        background: linear-gradient(#fb5283, #ff3527);
         position: absolute;
         top: 82px;
         right:0;
         left:0;
         z-index: 2;
+        
     }
 
     .navbar{
@@ -192,11 +193,6 @@ nav ul li a:hover{
         margin-top: 10px;
         margin-bottom: 10px;
     }
-
-    .navbar li a{
-        color: #fff;
-    }
-    
 
     #menuList{
         overflow: hidden;
