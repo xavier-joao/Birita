@@ -56,7 +56,7 @@ nav ul li a{
 
 
 nav ul li a:hover{
-    color: #ff3527;
+    color: #3AB9CF;
 }
 
 
@@ -96,7 +96,7 @@ nav ul li a:hover{
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    background: linear-gradient(to right, #fb5283, #ff3527);
+    background: linear-gradient(to right, #9B4FE3, #3AB9CF);
     transition: width 0.5s;
 }
 
@@ -120,7 +120,7 @@ nav ul li a:hover{
     content: '';
     width: 10px;
     height: 57%;
-    background: linear-gradient(#fb5283, #ff3527);
+    background: linear-gradient(#9B4FE3, #3AB9CF);
     position: absolute;
     left: -40px;
     top: 8px;
@@ -140,7 +140,7 @@ nav ul li a:hover{
     position: absolute;
     right: 0;
     top: 0;
-    background: linear-gradient(#fb5283, #ff3527);
+    background: linear-gradient(#9B4FE3, #3AB9CF);
     border-radius: 20px 0 0 20px;
     height: 100%;
     width: 80%;
@@ -181,7 +181,7 @@ nav ul li a:hover{
     .navbar{
         padding-bottom: 8vh;
     }
-    
+
     .navbar li a::after{
         display: none;
         height: 0px;
