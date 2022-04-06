@@ -521,27 +521,27 @@ input:-webkit-autofill
     
         from {
             top: 0;
-            height: 50%;
+            height: 40%;
         }
     
         25% {
             top: 5%;
-            height: 55%;
+            height: 50%;
         }
     
         50% {
-            top: 30%;
+            top: 25%;
             height: 60%;
         }
     
         75% {
-            top: 40%;
-            height: 55%;
+            top: 45%;
+            height: 50%;
         }
     
         to {
             top: 60%;
-            height: 55%;
+            height: 40%;
         }
     }
     
@@ -569,7 +569,7 @@ input:-webkit-autofill
     
         to {
             top: 0;
-            height: 50%;
+            height: 40%;
         }
     }
 }
