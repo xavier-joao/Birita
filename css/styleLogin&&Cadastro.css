@@ -400,7 +400,6 @@ input:-webkit-autofill
 
     nav ul{
         width: 100%;
-        background: linear-gradient(#9b4fe3, #3ab9cf);
         position: sticky;
         top: 82px;
         right:0;
@@ -410,6 +409,7 @@ input:-webkit-autofill
 
     .navbar{
         height: 15vh;
+        padding-bottom: 20vh;
     }
     
     .navbar li a::after{
@@ -422,11 +422,6 @@ input:-webkit-autofill
         margin-top: 10px;
         margin-bottom: 10px;
     }
-
-    .navbar li a{
-        color: #fff;
-    }
-    
 
     #menuList{
         overflow: hidden;
@@ -444,7 +439,7 @@ input:-webkit-autofill
 
     .content::before {
         width: 100%;
-        height: 40%;
+        height: 50%;
         top: 0;
         border-radius: 0;
     }
@@ -456,11 +451,11 @@ input:-webkit-autofill
 
     .first-column, .second-column {
         width: 100%;
-        height: 60%;
+        height: 40%;
     }
     
     .sign-in-js .content::before {
-        top: 47%;
+        top: 40%;
         left: 0;
         border-radius: 0;
 
@@ -525,27 +520,27 @@ input:-webkit-autofill
     
         from {
             top: 0;
-            height: 40%;
+            height: 50%;
         }
     
         25% {
             top: 5%;
-            height: 50%;
+            height: 55%;
         }
     
         50% {
-            top: 25%;
+            top: 30%;
             height: 60%;
         }
     
         75% {
-            top: 45%;
-            height: 50%;
+            top: 40%;
+            height: 55%;
         }
     
         to {
-            top: 47%;
-            height: 52%;
+            top: 60%;
+            height: 55%;
         }
     }
     
@@ -573,7 +568,7 @@ input:-webkit-autofill
     
         to {
             top: 0;
-            height: 33%;
+            height: 50%;
         }
     }
 }
