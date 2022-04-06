@@ -3,6 +3,15 @@ var btnSignup = document.querySelector("#signup");
 
 var body = document.querySelector("body");
 
+console.log("Carregueiiii")
+
+var form = document.getElementById("loginForm");
+              function handleForm(event) { event.preventDefault(); } 
+              form.addEventListener('submit', handleForm);
+
+var form = document.getElementById("registerForm");
+    function handleForm(event) { event.preventDefault(); } 
+        form.addEventListener('submit', handleForm);
 
 btnSignin.addEventListener("click", function () {
    body.className = "sign-in-js"; 
@@ -13,6 +22,7 @@ btnSignup.addEventListener("click", function () {
 })
 
 function login(){
+    console.log("Loginnnn")
     var usersList = JSON.parse(localStorage.getItem("usuarios"))
     console.log(usersList)
     var email = document.getElementById("email").value
@@ -41,6 +51,7 @@ function login(){
 }
 
 function cadastro(){
+    
     var email = document.getElementById("email").value
     var nome = document.getElementById("nome").value
     var senha = document.getElementById("senha").value
