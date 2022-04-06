@@ -247,7 +247,6 @@ input:-webkit-autofill
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     animation: slidein 1.3s;
-
     z-index: 12;
 }
 
@@ -440,7 +439,7 @@ input:-webkit-autofill
 
     .content::before {
         width: 100%;
-        height: 50%;
+        height: 35%;
         top: 0;
         border-radius: 0;
     }
@@ -452,11 +451,11 @@ input:-webkit-autofill
 
     .first-column, .second-column {
         width: 100%;
-        height: 40%;
+        height: 70%;
     }
     
     .sign-in-js .content::before {
-        top: 40%;
+        top: 50%;
         left: 0;
         border-radius: 0;
 
