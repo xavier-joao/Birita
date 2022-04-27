@@ -3,8 +3,6 @@ var btnSignup = document.querySelector("#signup");
 
 var body = document.querySelector("body");
 
-console.log("Carregueiiii")
-
 var form = document.getElementById("loginForm");
               function handleForm(event) { event.preventDefault(); } 
               form.addEventListener('submit', handleForm);
@@ -21,30 +19,38 @@ btnSignup.addEventListener("click", function () {
     body.className = "sign-up-js";
 })
 
-function login(){
-    console.log("Loginnnn")
+async function login(){
     var usersList = JSON.parse(localStorage.getItem("usuarios"))
     console.log(usersList)
-    var email = document.getElementById("email").value
-    var senha = document.getElementById("senha").value
+    var email = document.getElementById("emailLogin").value
+    var senha = document.getElementById("senhaLogin").value
 
-    if (usersList != null){
-        var usuarioEncontrado = false
+    // if (usersList != null){
+    //     var usuarioEncontrado = false
 
-        for(var i = 0; i < usersList.length; i++){
-            if(usersList[i][0] == email && usersList[i][1] == senha){
-                usuarioEncontrado = true
-                window.location.href = "index.html"
-            }
-        }
-        if(usuarioEncontrado){
+        // for(var i = 0; i < usersList.length; i++){
+        //     if(usersList[i][0] == email && usersList[i][1] == senha){
+        //         usuarioEncontrado = true
+        //         window.location.href = "index.html"
+        //     }
+        // }
+        if(email == "batata@batatinha.com" && senha == "123456") {
             alertaModal("Login realizado com sucesso")
+            var form = new FormData(document.getElementById('loginForm'));
+
+            const response = await fetch('./js/Session.php', {
+                method: 'POST',
+                body: form
+            })
+            // const data = await response.json()
+            window.location.href = "index.html"; 
+            console.log(response)
         }else{
             alertaModal("Login incorreto tente novamente")
         }
-    }else{
-        alertaModal("Login incorreto tente novamente")
-    }
+    // }else{
+    //     alertaModal("Login incorreto tente novamente")
+    // }
 
     var email = document.getElementById("email").value = ""
     var senha = document.getElementById("senha").value = ""

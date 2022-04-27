@@ -18,7 +18,7 @@
             <a href="index.html"><img src="img/logo.png" class="logo"></a>
             <nav>
               <ul id="menuList">
-                <li><a href="indexBiblioteca">Drincoteca</a></li>
+                  <li><a href="indexBiblioteca">Drincoteca</a></li>
                 <li><a href="index.html":>Home</a></li>
               </ul>
             </nav>
@@ -76,16 +76,16 @@
             <div class="second-column">
                 <h2 class="title title-second">Biriter login</h2>
                 <p class="description description-second">Entre com o seu email:</p>
-                <form class="form" id="loginForm">
+                <form class="form" id="loginForm" method="post" action="/js/Session.php">
                 
                     <label class="label-input" for="">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input type="email" placeholder="Email" id="email">
+                        <input type="email" placeholder="Email" id="emailLogin" name="email">
                     </label>
                 
                     <label class="label-input" for="">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Senha" id="senha">
+                        <input type="password" placeholder="Senha" id="senhaLogin" name="senha">
                     </label>
                 
                     <a class="password" onclick="enviarEmail()">Esqueceu sua senha?</a>
