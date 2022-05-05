@@ -103,7 +103,7 @@ function cadastro(){
                 alertaModal("Deve conter um email válido, por exemplo: exemplo@exemplo.com")
             }
         } else {
-            alertaModal("A senha deve conter no mínimo 8 caracteres, sendo obrigatório, no mínimo, um número, uma letra maiúscula e minúscula e um caracter especial!")
+            alertaModal("A senha deve conter no mínimo 8 caracteres, sendo obrigatório, no mínimo, um número, uma letra maiúscula e minúscula e um caracter especial.")
         }        
     } else {
         alertaModal("Email e senha não podem ser nulos")

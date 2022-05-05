@@ -113,6 +113,9 @@ nav ul li a:hover{
 .description-primary {
     color: #f3faf7;
 }
+
+
+
 .description-second {
     color: #3ab9cf;
 }
@@ -186,12 +189,12 @@ nav ul li a:hover{
     background-color: #dadde7;
 }
 
-input:-webkit-autofill 
+/* input:-webkit-autofill 
 {    
     box-shadow: inset;
     -webkit-box-shadow: 0 0 0px 1000px #ecf0f1 inset !important;
     -webkit-text-fill-color: #3ab9cf !important;
-}
+} */
 .label-input {
     background-color: #ecf0f1;
     display: flex;
@@ -584,3 +587,5 @@ input:-webkit-autofill
         width: 100%;
     }
 }
+
+

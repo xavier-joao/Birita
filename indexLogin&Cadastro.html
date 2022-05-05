@@ -11,7 +11,13 @@
     <link rel="stylesheet" href="css/styleLogin&&Cadastro.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-</head>
+
+  <style>
+    .popover-header{
+        color:#3ab9cf !important;
+    }
+  </style>
+      </head>
 <body>
     <!--#################### MENU #################### -->
     <div class="box-menu">
@@ -52,10 +58,16 @@
                     </label>
                     
                     <label class="label-input" for="">
+                      <script>
+                        $(document).ready(function(){
+                            $('[data-bs-toggle="popover"]').popover();  
+                        });
+                        </script>
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Senha" id="senha">
-                    </label>
+                        <input type="password" placeholder="Senha" id="senha" data-bs-toggle="popover" title="O que é uma senha forte?" data-bs-content="A senha deve conter no mínimo 8 caracteres, sendo obrigatório, no mínimo, um número, uma letra maiúscula e minúscula e um caracter especial.">
 
+                    </label>
+                  
                     <label class="label-input" for="">
                         <i class="fas fa-lock icon-modify"></i>
                         <input type="password" placeholder="Confirme sua senha" id="confirmSenha">
