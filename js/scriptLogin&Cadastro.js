@@ -1,56 +1,25 @@
-var btnSignin = document.querySelector("#signin");
-var btnSignup = document.querySelector("#signup");
-
-var body = document.querySelector("body");
-
-var form = document.getElementById("loginForm");
-              function handleForm(event) { event.preventDefault(); } 
-              form.addEventListener('submit', handleForm);
-
-var form = document.getElementById("registerForm");
-    function handleForm(event) { event.preventDefault(); } 
-        form.addEventListener('submit', handleForm);
-
-btnSignin.addEventListener("click", function () {
-   body.className = "sign-in-js"; 
-});
-
-btnSignup.addEventListener("click", function () {
-    body.className = "sign-up-js";
-})
+import CryptoJS from 'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js';
 
 async function login(){
-    var usersList = JSON.parse(localStorage.getItem("usuarios"))
-    console.log(usersList)
+
     var email = document.getElementById("emailLogin").value
     var senha = document.getElementById("senhaLogin").value
 
-    // if (usersList != null){
-    //     var usuarioEncontrado = false
+    //MARK: INSERIR BANCO
 
-        // for(var i = 0; i < usersList.length; i++){
-        //     if(usersList[i][0] == email && usersList[i][1] == senha){
-        //         usuarioEncontrado = true
-        //         window.location.href = "index.html"
-        //     }
-        // }
-        if(email == "batata@batatinha.com" && senha == "123456") {
-            alertaModal("Login realizado com sucesso")
-            var form = new FormData(document.getElementById('loginForm'));
-
-            const response = await fetch('./js/Session.php', {
-                method: 'POST',
-                body: form
-            })
-            // const data = await response.json()
-            window.location.href = "index.html"; 
-            console.log(response)
-        }else{
-            alertaModal("Login incorreto tente novamente")
-        }
-    // }else{
-    //     alertaModal("Login incorreto tente novamente")
-    // }
+    if(email == "batata@batatinha.com" && senha == "123456") {
+        alertaModal("Login realizado com sucesso")
+        var form = new FormData(document.getElementById('loginForm'));
+        
+        const response = await fetch('./php/Session.php', {
+            method: 'POST',
+            body: form
+        })
+        window.location.href = "index.html"; 
+        console.log(response)
+    }else{
+        alertaModal("Login incorreto tente novamente")
+    }
 
     var email = document.getElementById("email").value = ""
     var senha = document.getElementById("senha").value = ""
@@ -63,7 +32,6 @@ function cadastro(){
     var senha = document.getElementById("senha").value
     var senhaConfirm = document.getElementById("confirmSenha").value
 
-    
     if(nome != '' && senha != '' && email != '') {
         if (validaSenha(senha)) {
             if (validaEmail(email)){
@@ -73,9 +41,11 @@ function cadastro(){
                     var senhaConfirm = document.getElementById("confirmSenha").value = ""
                 } else {
 
+                    CryptoJS.SHA256(senha)
+
                     $.ajax( {
                         type: "POST",
-                        url: "js/emailCadastro.php",
+                        url: "php/emailCadastro.php",
                         data: {
                             usuario: email,                
                         },
@@ -83,21 +53,16 @@ function cadastro(){
                             console.log(retorno);
                         }
                     });
+                    var form = new FormData(document.getElementById('registerForm'));
+        
+                    const response = await fetch('./php/Session.php', {
+                        method: 'POST',
+                        body: form
+                    })
+                    window.location.href = "index.html"; 
+                    console.log(response)
 
                     alertaModal("Cadastro realizado com sucesso!")
-                    // document.getElementById("registerForm").method = "POST"
-                    // document.getElementById("registerForm").action = "emailCadastro.php"
-                    // document.getElementById("registerForm").submit()
-                    var usersList = JSON.parse(localStorage.getItem("usuarios"))
-                    var usuario = [ email, senha, nome ]
-                    if (usersList != null) {
-                        usersList.push(usuario)
-                        window.localStorage.setItem("usuarios", JSON.stringify(usersList));
-                    }else {
-                        var list = [usuario]
-                        window.localStorage.setItem("usuarios", JSON.stringify(list));
-                    }
-                    window.location.href = "index.html";    
                 }
             } else {
                 alertaModal("Deve conter um email válido, por exemplo: exemplo@exemplo.com")
@@ -136,11 +101,6 @@ function recuperaSenha(){
         alertaModal("Por favor, digite o código enviado para o email cadastrado!")
     }
 
-}
-
-function enviarEmail() {
-    var myModal = new bootstrap.Modal(document.getElementById('senhaRecuperacao'))
-    myModal.show()
 }
 
 function alertaModal (texto) {
