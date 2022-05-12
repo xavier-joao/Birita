@@ -15,6 +15,7 @@
   <style>
     .popover-header{
         color:#3ab9cf !important;
+        
     }
   </style>
       </head>
@@ -60,11 +61,13 @@
                     <label class="label-input" for="">
                       <script>
                         $(document).ready(function(){
-                            $('[data-bs-toggle="popover"]').popover();  
+                            $('[data-bs-toggle="popover"]').popover({trigger: "focus"}); ; 
+                            
                         });
                         </script>
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Senha" id="senha" data-bs-toggle="popover" title="O que é uma senha forte?" data-bs-content="A senha deve conter no mínimo 8 caracteres, sendo obrigatório, no mínimo, um número, uma letra maiúscula e minúscula e um caracter especial.">
+                        <input type="password" placeholder="Senha" id="senha" data-bs-toggle="popover" delay: { "show": 500, "hide": 100 }
+                          title="O que é uma senha forte?" data-bs-content="A senha deve conter no mínimo 8 caracteres, sendo obrigatório, no mínimo, um número, uma letra maiúscula e minúscula e um caracter especial.">
 
                     </label>
                   
