@@ -44,9 +44,17 @@
                 <p class="description description-second">Digite sua nova senha:</p>
                 <form class="form" id="registerForm">
                   <label class="label-input" for="">
-                    <i class="fas fa-lock icon-modify"></i>
-                    <input type="password" placeholder="Nova senha">
-                </label>
+                    <script>
+                      $(document).ready(function(){
+                          $('[data-bs-toggle="popover"]').popover({trigger: "focus"}); ; 
+                          
+                      });
+                      </script>
+                      <i class="fas fa-lock icon-modify"></i>
+                      <input type="password" placeholder="Nova senha" id="novasenha" data-bs-toggle="popover" delay: { "show": 500, "hide": 100 }
+                        title="O que é uma senha forte?" data-bs-content="A senha deve conter no mínimo 8 caracteres, sendo obrigatório, no mínimo, um número, uma letra maiúscula e minúscula e um caracter especial.">
+
+                  </label>
 
                 <label class="label-input" for="">
                     <i class="fas fa-lock icon-modify"></i>
