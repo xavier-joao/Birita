@@ -45,7 +45,7 @@ function cadastro(){
 
                     $.ajax( {
                         type: "POST",
-                        url: "php/emailCadastro.php",
+                        url: "./php/emailCadastro.php",
                         data: {
                             usuario: email,                
                         },
