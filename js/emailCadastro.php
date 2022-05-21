@@ -21,7 +21,8 @@ $mail->Password = 'ghostcompany';
 $mail->SetFrom('ghostsoftcompany@gmail.com', 'Birita');
     $mail->addAddress('marcella14peralta14@gmail.com','');
 $mail->Subject = "Confirmação de E-mail";
-$mail->msgHTML("<html>
+$mail->msgHTML("
+<html>
 <head>
   <meta charset='UTF-8' />
   <title>Email</title>
@@ -121,6 +122,7 @@ $mail->msgHTML("<html>
           font-size: 16px;
           padding: 10px;
           cursor: pointer;
+          font-family: 'helvetica';
           font-weight: bold;
           width: 300px;
           height: 70px;
