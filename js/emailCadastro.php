@@ -16,9 +16,9 @@ $mail->SMTPSecure = 'ssl';
     $mail->Host = 'smtp.gmail.com'; 
 $mail->Port = 465;
     // Detalhes do envio de E-mail
-$mail->Username = 'ghostsoftcompany@gmail.com'; 
-$mail->Password = 'ghostcompany';
-$mail->SetFrom('ghostsoftcompany@gmail.com', 'Birita');
+$mail->Username = 'loverbirita@gmail.com'; 
+$mail->Password = 'Biriters555';
+$mail->SetFrom('loversbirita@gmail.com', 'Birita');
     $mail->addAddress('marcella14peralta14@gmail.com','');
 $mail->Subject = "Confirmação de E-mail";
 $mail->msgHTML("
