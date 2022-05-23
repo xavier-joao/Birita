@@ -72,7 +72,6 @@ function cadastro(){
                     var senha = document.getElementById("senha").value = ""
                     var senhaConfirm = document.getElementById("confirmSenha").value = ""
                 } else {
-
                     $.ajax( {
                         type: "POST",
                         url: "js/emailCadastro.php",
@@ -97,7 +96,7 @@ function cadastro(){
                         var list = [usuario]
                         window.localStorage.setItem("usuarios", JSON.stringify(list));
                     }
-                    window.location.href = "index.html";    
+                    //window.location.href = "index.html";    
                 }
             } else {
                 alertaModal("Deve conter um email válido, por exemplo: exemplo@exemplo.com")

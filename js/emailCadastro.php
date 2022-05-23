@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
     require '../PHPMailer-master/src/Exception.php';
@@ -172,5 +174,7 @@ $mail->msgHTML("
 </html>
 
 ");
-    $mail->send();
+$mail->send();
+
+    
 ?>
