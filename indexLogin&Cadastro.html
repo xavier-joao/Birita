@@ -60,7 +60,8 @@
                     <label class="label-input" for="">
                       <script>
                         $(document).ready(function(){
-                            $('[data-bs-toggle="popover"]').popover();  
+                            $('[data-bs-toggle="popover"]').popover({trigger: 'focus'});
+                              
                         });
                         </script>
                         <i class="fas fa-lock icon-modify"></i>
