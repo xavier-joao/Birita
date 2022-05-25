@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 'On');
+require('config.php');
+
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
     require '../PHPMailer-master/src/Exception.php';
@@ -17,11 +17,21 @@ $mail->SMTPAuth = true;
 $mail->SMTPSecure = 'ssl'; 
     $mail->Host = 'smtp.gmail.com'; 
 $mail->Port = 465;
+
+$nome = $_POST["nome"];
+$email = $_POST["email"];
+$senha = $_POST["senhaHash"];
+
+
+
+$queryInsertUsuario = "INSERT INTO usuario(nome, email, senha) VALUES ('$nome', '$email', '$senha')";
+
+$insertUsuario = mysqli_query($conexao, $queryInsertUsuario);
     // Detalhes do envio de E-mail
 $mail->Username = 'biritalovers@gmail.com'; 
 $mail->Password = 'biritalovers14';
 $mail->SetFrom('biritalovers@gmail.com', 'Birita');
-    $mail->addAddress('marcella14peralta14@gmail.com','');
+    $mail->addAddress($email,'');
 $mail->Subject = "Confirmação de E-mail";
 $mail->msgHTML("
 <html>
@@ -85,7 +95,7 @@ $mail->msgHTML("
           padding: 4px;
       }
 
-      #gif {
+      .gif {
           margin: 0 auto 3% auto;
       }
 
@@ -138,6 +148,7 @@ $mail->msgHTML("
           background-color: #f3faf7;
           color: #3ab9cf;
           align-items: center;
+          cursor: pointer;
       }
   </style>
 </head>
@@ -155,15 +166,18 @@ $mail->msgHTML("
               Ahhhhhh estamos muito feliz em ter você aqui com a gente, já estamos com o nosso drink pronto para brindarmos! E para isso só está 
               faltando uma coisa: confirmar o seu email :) é só clicar no botão que está aqui embaixo!
           </p>
-          <button class='btn' type='button' onclick='location.href="index.html"'>Confirmar email</button>          
+          <a href='http://localhost/Birita/index.html'>
+            <button class='btn' type='button'>Confirmar email</button>
+          </a>
+                    
       </div>
-      <div id='gif'>
-          <img src='img/betty-white-wine.gif'>
+      <div class='gif'>
+          <img src='https://media.giphy.com/media/hTAX5rJYx90DpeRsKc/giphy.gif'>
       </div>
       <hr />
           <footer>
               <div id='social-links'>
-                  <img src='img/facebook.png'>
+                  <a href='https://www.flaticon.com/br/icones-gratis/facebook' title='facebook ícones'></a>
                   <img src='img/twitter.png'>
                   <img src='img/instagram.png'>
               </div>
@@ -171,10 +185,6 @@ $mail->msgHTML("
     </div>
   </div>
 </body>
-</html>
-
-");
-$mail->send();
-
-    
+</html>");
+    $mail->send();
 ?>

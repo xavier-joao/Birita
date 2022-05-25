@@ -25,32 +25,21 @@ async function login(){
     var email = document.getElementById("emailLogin").value
     var senha = document.getElementById("senhaLogin").value
 
-    // if (usersList != null){
-    //     var usuarioEncontrado = false
-
-        // for(var i = 0; i < usersList.length; i++){
-        //     if(usersList[i][0] == email && usersList[i][1] == senha){
-        //         usuarioEncontrado = true
-        //         window.location.href = "index.html"
-        //     }
-        // }
         if(email == "batata@batatinha.com" && senha == "123456") {
             alertaModal("Login realizado com sucesso")
             var form = new FormData(document.getElementById('loginForm'));
 
-            const response = await fetch('./js/Session.php', {
+            const response = await fetch('php/Session.php', {
                 method: 'POST',
                 body: form
             })
-            // const data = await response.json()
+            
             window.location.href = "index.html"; 
             console.log(response)
         }else{
             alertaModal("Login incorreto tente novamente")
         }
-    // }else{
-    //     alertaModal("Login incorreto tente novamente")
-    // }
+    
 
     var email = document.getElementById("email").value = ""
     var senha = document.getElementById("senha").value = ""
@@ -82,16 +71,10 @@ function cadastro(){
                         type: "POST",
                         data: dados,
                         url: "php/SignUp.php",
-                        error: function(xhr, status, error) {
-                            var err = eval("(" + xhr.responseText + ")");
-                            alert(err.Message);
-                          }
                     });
 
                     alertaModal("Cadastro realizado com sucesso!")
-                    // document.getElementById("registerForm").method = "POST"
-                    // document.getElementById("registerForm").action = "emailCadastro.php"
-                    // document.getElementById("registerForm").submit()
+                    
                     var usersList = JSON.parse(localStorage.getItem("usuarios"))
                     var usuario = [ email, senha, nome ]
                     if (usersList != null) {
