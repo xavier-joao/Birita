@@ -72,15 +72,20 @@ function cadastro(){
                     var senha = document.getElementById("senha").value = ""
                     var senhaConfirm = document.getElementById("confirmSenha").value = ""
                 } else {
-                    $.ajax( {
+                    var hash = CryptoJS.SHA1(senha);
+                    document.getElementById("senhaHash").value = hash;
+                    
+
+                    var dados = $("#formularioCadastro").serialize();
+
+                    $.ajax({
                         type: "POST",
-                        url: "js/emailCadastro.php",
-                        data: {
-                            usuario: email,                
-                        },
-                        sucess: function(retorno){
-                            console.log(retorno);
-                        }
+                        data: dados,
+                        url: "php/SignUp.php",
+                        error: function(xhr, status, error) {
+                            var err = eval("(" + xhr.responseText + ")");
+                            alert(err.Message);
+                          }
                     });
 
                     alertaModal("Cadastro realizado com sucesso!")
