@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 const toggleButton = document.getElementsByClassName('toggle-button')[0]
 const navbarLista = document.getElementsByClassName('navbar-lista')[0]
 
@@ -29,6 +30,28 @@ function login(){
     }else{
         alertaModal("Login incorreto tente novamente")
     }
+=======
+async function login(){
+    var usersList = JSON.parse(localStorage.getItem("usuarios"))
+    console.log(usersList)
+    var email = document.getElementById("emailLogin").value
+    var senha = document.getElementById("senhaLogin").value
+
+        if(email == "batata@batatinha.com" && senha == "123456") {
+            alertaModal("Login realizado com sucesso")
+            var form = new FormData(document.getElementById('loginForm'));
+
+            const response = await fetch('php/Session.php', {
+                method: 'POST',
+                body: form
+            })
+            
+            window.location.href = "index.html"; 
+            console.log(response)
+        }else{
+            alertaModal("Login incorreto tente novamente")
+        }
+>>>>>>> Stashed changes
 
     var email = document.getElementById("email").value = ""
     var senha = document.getElementById("senha").value = ""
@@ -40,6 +63,8 @@ function cadastro(){
     var senha = document.getElementById("senha").value
     var senhaConfirm = document.getElementById("confirmSenha").value
 
+   
+
     
     if(nome != '' && senha != '' && email != '') {
         if (validaSenha(senha)) {
@@ -49,6 +74,7 @@ function cadastro(){
                     var senha = document.getElementById("senha").value = ""
                     var senhaConfirm = document.getElementById("confirmSenha").value = ""
                 } else {
+<<<<<<< Updated upstream
                     alertaModal("Cadastro realizado com sucesso!")
                     var usersList = JSON.parse(localStorage.getItem("usuarios"))
                     var usuario = [ email, senha, nome ]
@@ -60,6 +86,25 @@ function cadastro(){
                         window.localStorage.setItem("usuarios", JSON.stringify(list));
                     }
                     window.location.href = "index.html";    
+=======
+                    var hash = CryptoJS.SHA1($("#senha").val());
+                    $("#senhaHash").val(hash);
+
+                    var dados = $("#formularioCadastro").serialize();
+
+                    $.ajax({
+                        type: "POST",
+                        data: dados,
+                        url: "php/SignUp.php",
+                
+                    });
+
+                    
+
+                    alertaModal("Cadastro realizado com sucesso!")
+                    
+                    //window.location.href = "index.html";    
+>>>>>>> Stashed changes
                 }
             } else {
                 alertaModal("Deve conter um email válido, por exemplo: exemplo@exemplo.com")
