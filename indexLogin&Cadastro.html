@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+      var form = document.getElementById("formularioCadastro");
+      function handleForm(event) { event.preventDefault(); } 
+      form.addEventListener('submit', handleForm);
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="js/scriptLogin&Cadastro.js"></script>
@@ -77,7 +81,7 @@
                         <input type="password" placeholder="Confirme sua senha" id="confirmSenha">
                     </label>
                     
-                    <button class="btn btn-second" onclick="cadastro()">Cadastrar</button>        
+                    <button type="button" class="btn btn-second" onclick="cadastro()">Cadastrar</button>        
                 </form>
             </div>
         </div>
@@ -142,7 +146,21 @@
                 </div>
                 <div class="modal-body" id="modalBody"></div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-second" data-bs-dismiss="modal">Fechar</button>
+                  <button type="button" class="btn btn-second" data-bs-dismiss="modal">Continuar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="promptModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="promptModalLabel">Aviso</h5>
+                </div>
+                <div class="modal-body" id="modalBody"></div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-second" data-bs-dismiss="modal">Continuar</button>
                 </div>
               </div>
             </div>

@@ -156,7 +156,7 @@ $mail->msgHTML("
   <div id='header'>
     <header>
       <div id='logo'>
-          <img src='img/logo.png'>
+          <img src='https://i.imgur.com/Aa0Hu0e.png'>
       </div>
     </header>
     <div id='container'>
@@ -186,5 +186,5 @@ $mail->msgHTML("
   </div>
 </body>
 </html>");
-    $mail->send();
+$mail->send();
 ?>
