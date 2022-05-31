@@ -1,0 +1,76 @@
+.container{
+    max-width: 1200px !important;
+}
+
+.row .col-sm-3 .row .col-sm-9{
+    margin-top: 10%;
+}
+
+span.filter-heading{
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: -0.5px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 250px;
+    margin: auto;
+    height: 100%;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+}
+.card h1{
+    font-size: 20px;
+    margin-top: 5%;
+    color: #282829;
+    font-weight: 600;
+    margin-bottom: 2%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.card p.desc{
+    width: 80%;
+    margin: 2% auto 5%;
+    color: grey;
+    font-size: 20px;
+}
+
+.card p.qty input{
+    width: 60%;
+    float: left;
+    text-align: center;
+}
+
+.card button {
+    border: none;
+    outline: 0;
+    padding: 8px;
+    color: #000;
+    background-color: #fff;
+    text-align: center;
+    border: 1px solid #dbdbdb;
+    cursor: pointer;
+    width: 50%;
+    font-size: 14px;
+}
+
+.card img{
+    width: 100%;
+    object-fit: cover;
+    height: 280px;
+}
+
+.card button:hover{
+    opacity: 0.7;
+}
+
+.col-sm-9 .row{
+    margin: 3% auto;
+}
+
+.col-sm-9 .row .col-sm-4{
+    margin: 2% 0;
+}
