@@ -1,31 +1,19 @@
-var btnSignin = document.querySelector("#signin");
-var btnSignup = document.querySelector("#signup");
-
-var body = document.querySelector("body");
-
-var form = document.getElementById("loginForm");
-              function handleForm(event) { event.preventDefault(); } 
-              form.addEventListener('submit', handleForm);
-
-var form = document.getElementById("registerForm");
-    function handleForm(event) { event.preventDefault(); } 
-        form.addEventListener('submit', handleForm);
-
-btnSignin.addEventListener("click", function () {
-   body.className = "sign-in-js"; 
-});
-
-btnSignup.addEventListener("click", function () {
-    body.className = "sign-up-js";
-})
-
 async function login(){
-    var usersList = JSON.parse(localStorage.getItem("usuarios"))
-    console.log(usersList)
     var email = document.getElementById("emailLogin").value
     var senha = document.getElementById("senhaLogin").value
 
-        if(email == "batata@batatinha.com" && senha == "123456") {
+    var hash = CryptoJS.SHA1(senha);
+    document.getElementById("senhaHash").value = hash;
+                    
+    var dados = $("#loginForm").serialize();
+
+        $.ajax({
+            type: "POST",
+            data: dados,
+            url: "php/Session.php",
+        });
+
+        /*if(email == "batata@batatinha.com" && senha == "123456") {
             alertaModal("Login realizado com sucesso")
             var form = new FormData(document.getElementById('loginForm'));
 
@@ -42,8 +30,9 @@ async function login(){
     
 
     var email = document.getElementById("email").value = ""
-    var senha = document.getElementById("senha").value = ""
+    var senha = document.getElementById("senha").value = ""*/
 }
+
 
 function cadastro(){
     
@@ -70,20 +59,18 @@ function cadastro(){
                     $.ajax({
                         type: "POST",
                         data: dados,
-                        url: "php/SignUp.php",
+                        dataType: "JSON",
+                        url: "php/signUp.php",
+                        success:function(retorno){
+                            if(retorno.status == 'emailCadastrado') {
+                                alertaModal('Email já cadastrado!')
+                            } else if (retorno.status == 'sucesso') {
+                                alertaModal('Cadastro realizado com sucesso!')
+                            }
+                        }
                     });
 
-                    alertaModal("Cadastro realizado com sucesso!")
-                    
-                    var usersList = JSON.parse(localStorage.getItem("usuarios"))
-                    var usuario = [ email, senha, nome ]
-                    if (usersList != null) {
-                        usersList.push(usuario)
-                        window.localStorage.setItem("usuarios", JSON.stringify(usersList));
-                    }else {
-                        var list = [usuario]
-                        window.localStorage.setItem("usuarios", JSON.stringify(list));
-                    }
+                    //alertaModal("Cadastro realizado com sucesso!")
                     //window.location.href = "index.html";    
                 }
             } else {

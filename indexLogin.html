@@ -52,16 +52,17 @@
         <div class="second-column">
             <h2 class="title title-second">Biriter login</h2>
             <p class="description description-second">Entre com o seu email:</p>
-            <form class="form" id="loginForm" method="post" action="/js/Session.php">
+            <input type="hidden" id="senhaHash" name="senhaHash">
+            <form class="form" id="loginForm" method="post" action="php/Session.php">
             
                 <label class="label-input" for="">
                     <i class="far fa-envelope icon-modify"></i>
-                    <input type="email" placeholder="Email" id="emailLogin" name="email">
+                    <input type="email" placeholder="Email" id="emailLogin" name="emailLogin">
                 </label>
             
                 <label class="label-input" for="">
                     <i class="fas fa-lock icon-modify"></i>
-                    <input type="password" placeholder="Senha" id="senhaLogin" name="senha">
+                    <input type="password" placeholder="Senha" id="senhaLogin" name="senhaLogin">
                 </label>
             
                 <a class="password" onclick="enviarEmail()">Esqueceu sua senha?</a>
