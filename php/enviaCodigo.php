@@ -27,6 +27,8 @@ $mail->Port = 465;
 $email = $_POST["emailLogin"];
 $senha = $_POST["senhaHashLogin"];
 
+$emailRecuperacao = $_POST["emailRecuperacao"];
+
 
     // Detalhes do envio de E-mail
 $mail->Username = 'biritalovers@gmail.com'; 
@@ -36,10 +38,12 @@ $mail->SetFrom('biritalovers@gmail.com', 'Birita');
 
 $duration = 3600;
 
-$verify = mysqli_query($conexao, "SELECT email,senha FROM usuario WHERE email = '$email' AND senha = '$senha'") or die("erro ao selecionar");
-    if (mysqli_num_rows($verify) <= 0){
+$verifyLogin = mysqli_query($conexao, "SELECT email,senha FROM usuario WHERE email = '$email' AND senha = '$senha'");
+$verifyEmail = mysqli_query($conexao, "SELECT email FROM usuario WHERE email = '$emailRecuperacao'");
+
+    if (mysqli_num_rows($verifyLogin) <= 0){
         echo"<script language='javascript' type='text/javascript'>
-        alert($email);window.location
+        alert('Email ou senha incorretos');window.location
         .href='indexLogin.html';</script>";
         die();
     }else{
@@ -53,16 +57,45 @@ $verify = mysqli_query($conexao, "SELECT email,senha FROM usuario WHERE email = 
         $_SESSION["loggedIn"] = array(
             "start"=>time(),
             "duration"=>$duration,
-            "user"=>$email
-
-
+            "id"=>$logarray,
+            "status"=>'autenticacaoLogin'
         );
         $mail->addAddress($email,'');
           $mail->Subject = "Autenticaçâo de login";
           $mail->msgHTML('<h1>Seu código de verificação:</h1><br>' .$randNum);
           if($mail->send()){
-            //echo"bala";
             
           }
-      }
+    }
+
+    if (mysqli_num_rows($verifyEmail) <= 0){
+        echo"<script language='javascript' type='text/javascript'>
+        alert('Email incorreto ou não encontrado');window.location
+        .href='indexLogin.html';</script>";
+        die();
+    }else{
+        
+        $buscaId = mysqli_query($conexao, "SELECT idUsuario FROM usuario WHERE email = '$emailRecuperacao'");
+        $array = mysqli_fetch_array($buscaId);
+        $logarray = $array['idUsuario'];
+
+
+        $salvaCodigo = mysqli_query($conexao, "UPDATE usuario SET codVerificacao = '$randNum' where idUsuario = '$logarray'");
+        
+
+        $_SESSION["loggedIn"] = array(
+            "start"=>time(),
+            "duration"=>$duration,
+            "id"=>$logarray,
+            "status"=>'autenticacaoSenha'
+        );
+        $mail->addAddress($email,'');
+        $mail->Subject = "Recuperação de Senha";
+        $mail->msgHTML('<h1>Seu código de verificação:</h1><br>' .$randNum);
+        if($mail->send()){
+            
+        }
+    }
+
+      
 ?>

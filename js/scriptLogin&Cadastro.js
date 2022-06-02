@@ -10,46 +10,16 @@ async function login(){
         $.ajax({
             type: "POST",
             data: dados,
+            dataType: "JSON",
             url: "php/enviaCodigo.php",
             success:function(retorno) {
-                window.location.href='indexRecuperacaoSenha.html'
+                window.location.href='indexCodigo.html'
             }
         });
 
-        /*if(email == "batata@batatinha.com" && senha == "123456") {
-            alertaModal("Login realizado com sucesso")
-            var form = new FormData(document.getElementById('loginForm'));
-
-            const response = await fetch('php/Session.php', {
-                method: 'POST',
-                body: form
-            })
-            
-            window.location.href = "index.html"; 
-            console.log(response)
-        }else{
-            alertaModal("Login incorreto tente novamente")
-        }
-    
-
     var email = document.getElementById("email").value = ""
-    var senha = document.getElementById("senha").value = ""*/
+    var senha = document.getElementById("senha").value = ""
 }
-
-function validaCodigo(){
-    var codigo = document.getElementById("codigo").value;
-
-    $.ajax({
-        type: "POST",
-        data: codigo,
-        url: "php/validaCodigo.php",
-        success:function(retorno) {
-            window.location.href='index.html'
-        }
-    });
-
-}
-
 
 function cadastro(){
     
@@ -85,10 +55,7 @@ function cadastro(){
                                 alertaModal('Cadastro realizado com sucesso!')
                             }
                         }
-                    });
-
-                    //alertaModal("Cadastro realizado com sucesso!")
-                    //window.location.href = "index.html";    
+                    });  
                 }
             } else {
                 alertaModal("Deve conter um email válido, por exemplo: exemplo@exemplo.com")
@@ -102,21 +69,32 @@ function cadastro(){
 }
 
 function recuperaSenha(){
-    var codigo = document.getElementById("codigo").value;
-    var senha = document.getElementById("senha").value
-    var senhaConfirm = document.getElementById("confirmSenha").value
+    
+    var senha = document.getElementById("novaSenha").value
+    var senhaConfirm = document.getElementById("confirmaNovaSenha").value
 
     if (codigo != '') {
         if (senha != '') {
             if (validaSenha(senha)){
                 if (senha != senhaConfirm){
                     alertaModal("As senhas não coicidem!")
-                    var senha = document.getElementById("senha").value = ""
-                    var senhaConfirm = document.getElementById("confirmSenha").value = ""
+                    var senha = document.getElementById("novaSenha").value = ""
+                    var senhaConfirm = document.getElementById("confirmaNovaSenha").value = ""
                 } else {
-                    alertaModal("Senha alterada com sucesso!")
+                    var novaSenhaHash = CryptoJS.SHA1(senha);
+                    document.getElementById("novaSenhaHash").value = novaSenhaHash;
+
+                    $.ajax({
+                        type: "POST",
+                        data: novaSenhaHash,
+                        url: "php/alteraSenha.php",
+                        success:function(retorno) {
+                            alertaModal("Senha alterada com sucesso!"),
+                            window.location.href='indexLogin.html'
+                        }
+                    });
                 }
-                window.location.href = "indexLogin.html"
+                //window.location.href = "indexLogin.html"
             } else {
                 alertaModal("A senha deve conter no mínimo 8 caracteres, sendo obrigatório, no mínimo, um número, uma letra maiúscula e minúscula e um caracter especial!") 
             }
@@ -129,15 +107,51 @@ function recuperaSenha(){
 
 }
 
-function enviarEmail() {
+function modalEmail() {
     var myModal = new bootstrap.Modal(document.getElementById('senhaRecuperacao'))
     myModal.show()
+}
+
+function enviaCodigoSenha() {
+    var email = document.getElementById("emailRecuperacao").value
+
+    $.ajax({
+        type: "POST",
+        data: email,
+        dataType: "JSON",
+        url: "php/enviaCodigo.php",
+        success:function(retorno) {
+            if (retorno.status == 'autenticacaoSenha') {
+                wwindow.location.href='indexCodigo.html'
+            } 
+        }
+    });
+
 }
 
 function alertaModal (texto) {
     var myModal = new bootstrap.Modal(document.getElementById('promptModal'))
         document.getElementById("modalBody").innerHTML = '<h7>' + texto;
         myModal.show()
+}
+
+function validaCodigo(){
+    var codigo = document.getElementById("codigo").value;
+
+    $.ajax({
+        type: "POST",
+        data: codigo,
+        url: "php/validaCodigo.php",
+        success:function(retorno) {
+            if(retorno.status == 'autenticacaoLogin') {
+                window.location.href='index.html'
+            } else if (retorno.status == 'autenticacaoSenha') {
+                window.location.href='indexNovaSenha.html'
+            }
+            
+        }
+    });
+
 }
 
 function validaSenha (senha){
@@ -151,4 +165,3 @@ function validaEmail (email){
 
     return testaEmail.test(email)
 }
-

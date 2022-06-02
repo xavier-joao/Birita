@@ -27,8 +27,8 @@
     </div>
     
     <div class="container">
-        <!--#################### FIRST CONTENT ####################-->
-        <div class="content first-content">
+        <!--#################### FIRST COLUMN ####################-->
+        <div class="content">
           <div class="first-column">
               <h2 class="title title-primary">Olá, biriter!</h2>
               <p class="description description-primary">Entre com seu email</p>
@@ -40,16 +40,17 @@
                 <h2 class="title title-second">Recuperação de senha</h2>
                 <p class="description description-second">Digite sua nova senha:</p>
                 <form class="form" id="registerForm">
+                  <input type="hidden" id="novaSenhaHash" name="novaSenhaHash">
                   <label class="label-input" for="">
                     <i class="fas fa-lock icon-modify"></i>
-                    <input type="password" placeholder="Nova senha">
+                    <input type="password" id="novaSenha" name="novaSenha" placeholder="Nova senha">
                 </label>
 
                 <label class="label-input" for="">
                     <i class="fas fa-lock icon-modify"></i>
-                    <input type="password" placeholder="Confirme sua nova senha">
+                    <input type="password" id="confirmaNovaSenha" name="confirmaNovaSenha"  placeholder="Confirme sua nova senha">
                 </label>
-                    <button class="btn btn-second" onclick="location.href='indexLogin&Cadastro.html'">Alterar</button>        
+                    <button class="btn btn-second" type="button" onclick="recuperaSenha()">Alterar</button>        
                 </form>
             </div>
         </div>
@@ -64,12 +65,12 @@
                     <h7> Insira o email para enviarmos o código para mudança de senha</h7>
                     <br><br>
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Insira seu email" id="floatingTextarea"></textarea>
+                        <textarea class="form-control" placeholder="Insira seu email" name="floatingTextarea" id="floatingTextarea"></textarea>
                         <label for="floatingTextarea">Email</label>
                       </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-second" onclick="location.href = 'indexRecuperacaoSenha.html';">Enviar</button>
+                    <button type="button" class="btn btn-second" onclick="location.href = 'indexCodigo.html';">Enviar</button>
                     <button type="button" class="btn btn-second" data-bs-dismiss="modal">Fechar</button>
                 </div>
               </div>
