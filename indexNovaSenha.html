@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Recuperação de senha</title>
 
-    <link rel="stylesheet" href="css/styleLogin&&Cadastro.css">
+    <link rel="stylesheet" href="css/styleLoginCadastro.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
@@ -29,15 +29,12 @@
     <div class="container">
         <!--#################### FIRST CONTENT ####################-->
         <div class="content first-content">
-            <div class="first-column">
-                <h2 class="title title-primary">Bem vindo de Volta!</h2>
-                <p class="description description-primary">Fique conectado com a gente para tomarmos bons drinks!</p>
-                <p class="description description-primary">Por favor, faça o seu login :)</p>
-                <a href="#">
-                    <button id="signin" class="btn btn-primary">Login</button>
-                </a>
-                
-            </div>  
+          <div class="first-column">
+              <h2 class="title title-primary">Olá, biriter!</h2>
+              <p class="description description-primary">Entre com seu email</p>
+              <p class="description description-primary">e comece a tomar bons drinks com a gente!</p>
+              <button id="signup" class="btn btn-primary" onclick="location.href='indexCadastro.html'">Cadastrar</button>
+          </div> 
             <!-- #################### SECOND COLUMN #################### -->  
             <div class="second-column">
                 <h2 class="title title-second">Recuperação de senha</h2>
@@ -55,38 +52,6 @@
                     <button class="btn btn-second" onclick="location.href='indexLogin&Cadastro.html'">Alterar</button>        
                 </form>
             </div>
-        </div>
-        <!-- #################### SECOND CONTENT #################### -->
-        <div class="content second-content">
-            <div class="first-column">
-                <h2 class="title title-primary">Olá, biriter!</h2>
-                <p class="description description-primary">Entre com seu email</p>
-                <p class="description description-primary">e comece a tomar bons drinks com a gente!</p>
-                <a href="indexLogin&Cadastro.html">
-                    <button id="signup" class="btn btn-primary">Cadastrar</button>
-                </a>
-            </div>
-            <!-- #################### SECOND COLUMN #################### -->
-            <div class="second-column">
-                <h2 class="title title-second">Biriter login</h2>
-                <p class="description description-second">Entre com o seu email:</p>
-                <form class="form" id="loginForm">
-                
-                    <label class="label-input" for="">
-                        <i class="far fa-envelope icon-modify"></i>
-                        <input type="email" placeholder="Email" id="email">
-                    </label>
-                
-                    <label class="label-input" for="">
-                        <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Senha" id="senha">
-                    </label>
-                
-                    <a class="password" onclick="enviarEmail()">Esqueceu sua senha?</a>
-                    <button class="btn btn-second" onclick="login()">Login</button>
-                </form>
-            </div>
-        </div>
         </div>
          <!--#################### MODALS ####################-->
          <div class="modal fade" id="senhaRecuperacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

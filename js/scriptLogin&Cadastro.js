@@ -2,15 +2,18 @@ async function login(){
     var email = document.getElementById("emailLogin").value
     var senha = document.getElementById("senhaLogin").value
 
-    var hash = CryptoJS.SHA1(senha);
-    document.getElementById("senhaHash").value = hash;
+    var hashLogin = CryptoJS.SHA1(senha);
+    document.getElementById("senhaHashLogin").value = hashLogin;
                     
     var dados = $("#loginForm").serialize();
 
         $.ajax({
             type: "POST",
             data: dados,
-            url: "php/Session.php",
+            url: "php/enviaCodigo.php",
+            success:function(retorno) {
+                window.location.href='indexRecuperacaoSenha.html'
+            }
         });
 
         /*if(email == "batata@batatinha.com" && senha == "123456") {
@@ -31,6 +34,20 @@ async function login(){
 
     var email = document.getElementById("email").value = ""
     var senha = document.getElementById("senha").value = ""*/
+}
+
+function validaCodigo(){
+    var codigo = document.getElementById("codigo").value;
+
+    $.ajax({
+        type: "POST",
+        data: codigo,
+        url: "php/validaCodigo.php",
+        success:function(retorno) {
+            window.location.href='index.html'
+        }
+    });
+
 }
 
 

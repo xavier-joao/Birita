@@ -25,7 +25,7 @@
         if (session_status() !== PHP_SESSION_ACTIVE) {
             if (empty($_SESSION['login'])){
                 $_SESSION['login'] = $login;
-                echo "<script>alertaModal('Login realizado com sucesso')</script>"
+                echo "<script>alertaModal('Login realizado com sucesso')</script>";
             } else {
                 echo "Usuario Logado: ".$_SESSION['login'];
             }
@@ -35,7 +35,7 @@
         alertaModal('Login incorreto tente novamente');
         var email = document.getElementById('email').value = "";
         var senha = document.getElementById('senha').value = "";
-    </script>"
+    </script>";
         echo "Login e senha incorretos";
     }   
 
