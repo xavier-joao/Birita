@@ -36,6 +36,7 @@ span.filter-heading{
     margin: 2% auto 5%;
     color: grey;
     font-size: 20px;
+    display: none;
 }
 
 .card p.qty input{
@@ -53,9 +54,18 @@ span.filter-heading{
     text-align: center;
     border: 1px solid #dbdbdb;
     cursor: pointer;
-    width: 50%;
     font-size: 14px;
 }
+
+.card botaoReceita {
+    width: 100% !important;
+}
+
+p.desc.show-more{
+    display: flex;
+}
+
+
 
 .card img{
     width: 100%;
