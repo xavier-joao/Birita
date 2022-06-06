@@ -5,7 +5,7 @@ require('config.php');
 $novaSenha = $_POST["novaSenhaHash"];
 
 $sessionId = $_SESSION["loggedIn"][2];
-$buscaId = mysqli_query($conexao, "SELECT idUsuario FROM usuario WHERE email = '$sessionId'");
+$buscaId = mysqli_query($conexao, "SELECT idUsuario FROM usuario WHERE idUsuario = '$sessionId'");
 $array = mysqli_fetch_array($buscaId);
 $logarray = $array['idUsuario'];
 
