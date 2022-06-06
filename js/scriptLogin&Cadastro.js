@@ -10,8 +10,7 @@ async function login(){
         $.ajax({
             type: "POST",
             data: dados,
-            dataType: "JSON",
-            url: "php/enviaCodigo.php",
+            url: "php/enviaCodigoLogin.php",
             success:function(retorno) {
                 window.location.href='indexCodigo.html'
             }
@@ -112,18 +111,15 @@ function modalEmail() {
     myModal.show()
 }
 
-function enviaCodigoSenha() {
+function enviaCodigoRecuperacao() {
     var email = document.getElementById("emailRecuperacao").value
 
     $.ajax({
         type: "POST",
         data: email,
-        dataType: "JSON",
-        url: "php/enviaCodigo.php",
+        url: "php/enviaCodigoRecuperacao.php",
         success:function(retorno) {
-            if (retorno.status == 'autenticacaoSenha') {
-                wwindow.location.href='indexCodigo.html'
-            } 
+            window.location.href='indexCodigo.html'
         }
     });
 
