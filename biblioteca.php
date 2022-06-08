@@ -17,8 +17,13 @@ include("php/fetchBiblioteca.php");
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
-                    <span class="filter-heading">Drincoteca:</span>
-                    <input type="text" class="form-control" id="live_search" autocomplete="off" placeholder="Busque seus ingredientes aqui!">
+                    <span class="filter-heading">Drincoteca</span>
+                </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="search" autocomplete="off" placeholder="Busque seus ingredientes aqui!">
+                        <div class="input-group-append">
+                        <button type="button" id="searchButton"class="btn btn-outline-primary">Buscar!</button>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-9">

@@ -1,5 +1,5 @@
-const botaoReceita = document.getElementsByClassName("botaoReceita");
-const desc = document.getElementsByClassName("desc");
+var botaoReceita = document.getElementsByClassName("botaoReceita");
+var desc = document.getElementsByClassName("desc");
 
     for(let i = 0; i < botaoReceita.length; i = i + 1 ) {
         botaoReceita[i].addEventListener("click", (e) => {
@@ -8,10 +8,9 @@ const desc = document.getElementsByClassName("desc");
     }
 
     $(document).ready(function(){
-        $("#live_search").keyup(function(){
-            var input = $(this).val();
+        $("#searchButton").click(function(){
+            var input = $("#search").val();
 
-            if(input != ""){
                 $.ajax({
                     url:"php/liveSearch.php",
                     method:"POST",
@@ -21,8 +20,6 @@ const desc = document.getElementsByClassName("desc");
                         $("#searchResults").html(data);
                     }
                 });
-            }else{
-                $("#searchresult").css("display","none");
-                }
+            
         })
     })
