@@ -9,17 +9,6 @@ if(isset($_POST['input'])){
     $result = mysqli_query($conexao,$query);
 
     if(mysqli_num_rows($result) > 0){?>
-    
-    <!-- BOOTSTRAP CSS E JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!--CSS CUSTOMIZADO-->
-    <link rel="stylesheet" type="text/css" href="css/styleBiblioteca.css">
-    
-    
-   <div class="col-sm-9">
                 <div id="searchResults" class="search-results-block">
                     <div class="row">
                         <?php
@@ -52,7 +41,6 @@ if(isset($_POST['input'])){
                     </div>
                 </div>
             </div>
-        <script src="js/scriptBiblioteca.js"></script>
 
         <?php
     
@@ -61,4 +49,4 @@ if(isset($_POST['input'])){
         echo"<h6 class='text-danger text-center mt-3'>Não achamos nada com seus ingredientes :(</h6>";
     }
 }
-?>
+?>        

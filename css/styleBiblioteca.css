@@ -1,11 +1,95 @@
+/* #################### CABEÇALHO ####################  */ 
 .container{
-    max-width: 1200px !important;
+    width: 100%;
+    min-height: 100vh;
+    max-width: 100% !important;
+    padding-left: 1%;
+    padding-right: 1%;
+    box-sizing: border-box;
+    overflow: hidden;
 }
+
+
+.navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    float: left;
+    width: 200px;
+    cursor: pointer;
+    margin: 30px 0;
+
+
+}
+.menu-icon{
+    width: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #3AB9CF;
+    font-size: larger;
+}
+
+
+nav ul li a:hover{
+    color: #9B4FE3;
+}
+
+/* #################### RESPONSIVIDADE CABEÇALHO####################  */ 
+
+
+@media only screen and (max-width:700px){
+    .menu-icon{
+        display: block;
+    }
+
+    nav ul{
+        width: 100%;
+        position: absolute;
+        top: 82px;
+        right:0;
+        left:0;
+        z-index: 2;
+        
+    }
+
+    .navbar{
+        padding-bottom: 8vh;
+    }
+
+    .navbar li a::after{
+        display: none;
+        height: 0px;
+    }
+
+    nav ul li{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+/*CONTEUDO DE BUSCA*/
 
 .row .col-sm-3 .row .col-sm-9{
     margin-top: 10%;
 }
-
 
 
 span.filter-heading{
@@ -17,6 +101,7 @@ span.filter-heading{
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    min-width: 150px;
     max-width: 250px;
     margin: auto;
     height: 100%;
