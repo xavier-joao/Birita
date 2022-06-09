@@ -2,9 +2,14 @@
 
 require('config.php');
 
+session_start();
+
 $novaSenha = $_POST["novaSenhaHash"];
 
-$sessionId = $_SESSION["loggedIn"][2];
+
+$sessionId = $_SESSION["loggedIn"]["id"];
+$status = $_SESSION["loggedIn"]["status"];
+
 $buscaId = mysqli_query($conexao, "SELECT idUsuario FROM usuario WHERE idUsuario = '$sessionId'");
 $array = mysqli_fetch_array($buscaId);
 $logarray = $array['idUsuario'];

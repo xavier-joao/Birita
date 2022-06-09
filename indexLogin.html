@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -74,6 +73,7 @@
     
     <!--#################### MODALS ####################-->
     <div class="modal fade" id="senhaRecuperacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <form id="modalForm">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -86,13 +86,16 @@
                     <input class="form-control" placeholder="Insira seu email" id="emailRecuperacao" name="emailRecuperacao">
                     <label for="input">Email</label>
                   </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-second" onclick="enviaCodigoRecuperacao()">Enviar</button>
-                <button type="button" class="btn btn-second" data-bs-dismiss="modal" onclick="location.href = 'indexLogin.html'">Fechar</button>
+                  <div class="modal-footer">
+                    <button type="button" id="enviar" onclick="enviaCodigoRecuperacao()" class="btn btn-second">Enviar</button>
+                    <button type="button" class="btn btn-second" data-bs-dismiss="modal" onclick="location.href = 'indexLogin.html'">Fechar</button>
+                </div>
             </div>
           </div>
         </div>
+      </form>  
+      
+      
       </div>
 
       <div class="modal fade" id="promptModal" tabindex="-1" aria-labelledby="promptModalLabel" aria-hidden="true">

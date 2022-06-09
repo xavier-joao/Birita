@@ -15,9 +15,9 @@ session_start();
 $mail->CharSet = 'UTF-8';   
 $mail->SMTPDebug = 0;
 $mail->SMTPAuth = true;     
-$mail->SMTPSecure = 'ssl'; 
-    $mail->Host = 'smtp.gmail.com'; 
-$mail->Port = 465;
+$mail->SMTPSecure = 'tls'; 
+$mail->Host = 'smtp-mail.outlook.com'; 
+$mail->Port = 587;
 
 $nome = $_POST["nome"];
 $email = $_POST["email"];
@@ -32,9 +32,9 @@ $logarray = $array['email'];
 
 
     // Detalhes do envio de E-mail
-$mail->Username = 'biritalovers@gmail.com'; 
-$mail->Password = 'biritalovers14';
-$mail->SetFrom('biritalovers@gmail.com', 'Birita');
+$mail->Username = 'biritalovers@hotmail.com'; 
+$mail->Password = 'birita14';
+$mail->SetFrom('biritalovers@hotmail.com', 'Birita');
     
 
 if($logarray == $email){
