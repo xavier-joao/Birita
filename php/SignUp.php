@@ -15,7 +15,7 @@ session_start();
 $mail->CharSet = 'UTF-8';   
 $mail->SMTPDebug = 0;
 $mail->SMTPAuth = true;     
-$mail->SMTPSecure = 'tls'; 
+$mail->SMTPSecure = 'STARTTLS'; 
 $mail->Host = 'smtp-mail.outlook.com'; 
 $mail->Port = 587;
 
@@ -24,10 +24,9 @@ $email = $_POST["email"];
 $senha = $_POST["senhaHash"];
 
 $query_select = "SELECT email FROM usuario WHERE email = '$email'";
+
 $select = mysqli_query($conexao,$query_select);
 $array = mysqli_fetch_array($select);
-$logarray = $array['email'];
-
 
 
 
@@ -37,28 +36,19 @@ $mail->Password = 'birita14';
 $mail->SetFrom('biritalovers@hotmail.com', 'Birita');
     
 
-if($logarray == $email){
+if(!empty($array)){
     $objeto['status'] = 'emailCadastrado';
     echo json_encode($objeto);
     
 
-  }else {
-    $queryInsertUsuario = "INSERT INTO usuario(nome, email, senha) VALUES ('$nome', '$email', '$senha');";
+  } else {
+   
+    $queryInsertUsuario = "INSERT INTO usuario(nome, email, senha, ativo) VALUES ('$nome', '$email', '$senha', 0);";
+    
     $insertUsuario = mysqli_query($conexao, $queryInsertUsuario);
 
+    
     if($insertUsuario){
-        $buscaId = mysqli_query($conexao, "SELECT idUsuario FROM usuario WHERE email = '$email'");
-        $array = mysqli_fetch_array($buscaId);
-        $logarray = $array['idUsuario'];
-        
-        $_SESSION["loggedIn"] = array(
-            "start"=>time(),
-            "duration"=>$duration,
-            "id"=>$logarray,
-            "status"=>'confirmacaoEmail'
-        );
-
-
     $mail->addAddress($email,'');
     $mail->Subject = "Confirmação de E-mail";
     $mail->msgHTML("
@@ -216,7 +206,9 @@ if($logarray == $email){
     </html>");
     if($mail->send()) {
         $objeto['status'] = 'sucesso';
-    echo json_encode($objeto);   
+        echo json_encode($objeto);   
     }
-    }
+}
   }
+    
+?>

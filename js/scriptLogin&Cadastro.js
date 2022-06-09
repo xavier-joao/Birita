@@ -53,6 +53,9 @@ function cadastro(){
                             } else if (retorno.status == 'sucesso') {
                                 alertaModal('Cadastro realizado com sucesso!')
                             }
+                        },
+                        error:function(e){
+                            console.log(e)
                         }
                     });  
                 }
