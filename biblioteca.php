@@ -14,8 +14,9 @@ include("php/fetchBiblioteca.php");
     
     </head>
     <body>
-<div class="container">
-    <div class="navbar">
+    <div class="container">
+    <div class="navbarBiblioteca">
+    <div class="navbar nav-fill">
       <a href="index.html"><img src="img/logo.png" class="logo"></a>
       <nav>
         <ul id="menuList">
@@ -39,12 +40,14 @@ include("php/fetchBiblioteca.php");
       }
     }
   </script>
+  </div>
+  
     </div>
   
         <div class="row d-flex justify-content-center">
             <div class="col-10">
-                <span class="d-flex tituloDrincoteca justify-content-center p-4 display-4">Drincoteca</span>
-                <div class="box-shadow shadow p-2 bg-white rounded caixaBusca">
+                <span class="d-flex tituloDrincoteca justify-content-center p-4 h1">Drincoteca</span>
+                <div class="box-shadow shadow p-2 bg-white rounded-bottom caixaBusca">
                     <form class="form-inline justify-content-center"> 
                         <div class="input-group m-2 w-100">
                             <input type="text" class="form-control" id="search" placeholder="Digite aqui seus ingredientes" aria-label="Digite aqui" aria-describedby="basic-addon2">
