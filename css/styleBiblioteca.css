@@ -9,19 +9,23 @@
     width: 100%;
     min-height: 100vh;
     max-width: 100% !important;
-    padding-left: 1%;
-    padding-right: 1%;
     box-sizing: border-box;
     overflow: hidden;
     background-color: #ebf6fc !important;
 }
 
+.navbarBiblioteca{
+    padding-bottom:3%;
+}
 
 .navbar{
-    width: 100%;
+    width: 105%;
     display: flex;
     align-items: center;
-    background-color: #e4f4fc;
+    background-color: #f9fdff;
+    margin-left: -4%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .logo{
@@ -102,6 +106,11 @@ nav ul li a:hover{
 .tituloDrincoteca {
     color: #fffcec;
     background: linear-gradient(to right, #9B4FE3, #3AB9CF);
+    border-top-left-radius: 1%;
+    border-top-right-radius: 1%;
+    margin-bottom: 0;
+    padding: 4% !important;
+    font-size: 400%;
 }
 
 
