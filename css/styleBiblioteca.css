@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "helvetica", sans-serif;
+    box-sizing: border-box;
+}
 /* #################### CABEÇALHO ####################  */ 
 .container{
     width: 100%;
@@ -7,7 +13,7 @@
     padding-right: 1%;
     box-sizing: border-box;
     overflow: hidden;
-    background-color: #f8f8ff !important;
+    background-color: #ebf6fc !important;
 }
 
 
@@ -86,8 +92,21 @@ nav ul li a:hover{
         margin-top: 10px;
         margin-bottom: 10px;
     }
+
+    #menuList{
+        overflow: hidden;
+        transition: 0.5s;
+    }
 }
+/*TITULO DRINCOTECA*/
+.tituloDrincoteca {
+    color: #fffcec;
+    background: linear-gradient(to right, #9B4FE3, #3AB9CF);
+}
+
+
 /*CONTEUDO DE BUSCA*/
+
 
 .row .col-sm-3 .row .col-sm-9{
     margin-top: 10%;

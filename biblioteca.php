@@ -19,23 +19,38 @@ include("php/fetchBiblioteca.php");
       <a href="index.html"><img src="img/logo.png" class="logo"></a>
       <nav>
         <ul id="menuList">
-          <li><a href="biblioteca.php">Drincoteca</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="indexLogin.html">Login</a></li>
           <li><a href="indexCadastro.html">Cadastro</a></li>
         </ul>
       </nav>
       <img src="img/menu.png" class="menu-icon" onclick="togglemenu()">
+      <script>
+
+    var menuList = document.getElementById("menuList");
+
+    menuList.style.maxHeight = "0px";
+
+    function togglemenu(){
+      if(menuList.style.maxHeight == "0px"){
+        menuList.style.maxHeight = "130px"
+      }else{
+        menuList.style.maxHeight = "0px";
+      }
+    }
+  </script>
     </div>
   
         <div class="row d-flex justify-content-center">
-            <div class="col-sm-3">
-                <span class="filter-heading d-flex justify-content-center">Drincoteca</span>
-                <div class="box-shadow shadow p-3 mb-5 bg-white rounded">
-                    <form class="form-inline my-2 my-lg-0"> 
-                        <div class="input-group mb-3">
+            <div class="col-10">
+                <span class="d-flex tituloDrincoteca justify-content-center p-4 display-4">Drincoteca</span>
+                <div class="box-shadow shadow p-2 bg-white rounded caixaBusca">
+                    <form class="form-inline justify-content-center"> 
+                        <div class="input-group m-2 w-100">
                             <input type="text" class="form-control" id="search" placeholder="Digite aqui seus ingredientes" aria-label="Digite aqui" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" id="searchButton" type="button">Buscar!</button>
+                                <button class="btn btn-outline-info" type="button">Adicionar Receita</button>
+                                <button class="btn btn-outline-info" id="searchButton" type="button">Buscar</button>
                             </div>
                         </div>   
                     </form>
@@ -85,7 +100,8 @@ include("php/fetchBiblioteca.php");
 
 
     <script src="js/scriptBiblioteca.js"></script>
-    <script>
+    
+  <script>
         var botaoReceita = document.getElementsByClassName("botaoReceita");
 var desc = document.getElementsByClassName("desc");
 
