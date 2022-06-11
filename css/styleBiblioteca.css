@@ -110,6 +110,7 @@ nav ul li a:hover{
     border-top-right-radius: 1%;
     margin-bottom: 0;
     padding: 4% !important;
+    font-weight: 500;
     font-size: 400%;
 }
 
