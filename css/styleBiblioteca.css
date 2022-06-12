@@ -11,7 +11,7 @@
     max-width: 100% !important;
     box-sizing: border-box;
     overflow: hidden;
-    background-color: #ebf6fc !important;
+    background-image: linear-gradient(#f9fdff36, #9b4fe34a, #3ab9cf37);
 }
 
 .navbarBiblioteca{

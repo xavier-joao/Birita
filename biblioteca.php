@@ -52,7 +52,7 @@ include("php/fetchBiblioteca.php");
                         <div class="input-group m-2 w-100">
                             <input type="text" class="form-control" id="search" placeholder="Digite aqui seus ingredientes" aria-label="Digite aqui" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-info" type="button">Adicionar Receita</button>
+                                <button class="btn btn-outline-info" type="button" >Adicionar Receita</button>
                                 <button class="btn btn-outline-info" id="searchButton" type="button">Buscar</button>
                             </div>
                         </div>   
