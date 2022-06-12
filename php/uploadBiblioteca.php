@@ -6,7 +6,7 @@ $descricaoreceita = $_POST['inputDescricao'];
 $tagsreceita = $_POST['inputTags'];
 
 $saveDir = "../img/";
-$saveFile = basename($_FILES['imagemReceita']['name']);
+$saveFile = $saveDir.basename($_FILES['imagemReceita']['name']);
 
 if (move_uploaded_file($_FILES['imagemReceita']['tmp_name'], $saveFile)){
 	echo "<h1>Imagem a enviar</h1><br>".$_FILES['imagemReceita']['name']." was saved<br>";
@@ -31,4 +31,4 @@ echo "<br>Tmp File Name: ".$_FILES['imagemReceita']['tmp_name']."<br>";
 echo "saveFile Variable Valuable: ".$saveFile;
 ?>
 
-<h1><a href="biblioteca.php">Voltar para drincoteca</a></h1> 
+<h1><a href="../biblioteca.php">Voltar para drincoteca</a></h1> 
