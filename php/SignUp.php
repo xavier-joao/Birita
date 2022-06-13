@@ -1,5 +1,6 @@
 <?php
 require('config.php');
+session_start();
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
@@ -14,37 +15,39 @@ require('config.php');
 $mail->CharSet = 'UTF-8';   
 $mail->SMTPDebug = 0;
 $mail->SMTPAuth = true;     
-$mail->SMTPSecure = 'ssl'; 
-    $mail->Host = 'smtp.gmail.com'; 
-$mail->Port = 465;
+$mail->SMTPSecure = 'STARTTLS'; 
+$mail->Host = 'smtp-mail.outlook.com'; 
+$mail->Port = 587;
 
 $nome = $_POST["nome"];
 $email = $_POST["email"];
 $senha = $_POST["senhaHash"];
 
 $query_select = "SELECT email FROM usuario WHERE email = '$email'";
+
 $select = mysqli_query($conexao,$query_select);
 $array = mysqli_fetch_array($select);
-$logarray = $array['email'];
-
 
 
 
     // Detalhes do envio de E-mail
-$mail->Username = 'biritalovers@gmail.com'; 
-$mail->Password = 'biritalovers14';
-$mail->SetFrom('biritalovers@gmail.com', 'Birita');
+$mail->Username = 'biritalovers@hotmail.com'; 
+$mail->Password = 'birita14';
+$mail->SetFrom('biritalovers@hotmail.com', 'Birita');
     
 
-if($logarray == $email){
+if(!empty($array)){
     $objeto['status'] = 'emailCadastrado';
     echo json_encode($objeto);
     
 
-  }else {
-    $queryInsertUsuario = "INSERT INTO usuario(nome, email, senha) VALUES ('$nome', '$email', '$senha');";
+  } else {
+   
+    $queryInsertUsuario = "INSERT INTO usuario(nome, email, senha, ativo) VALUES ('$nome', '$email', '$senha', 0);";
+    
     $insertUsuario = mysqli_query($conexao, $queryInsertUsuario);
 
+    
     if($insertUsuario){
     $mail->addAddress($email,'');
     $mail->Subject = "Confirmação de E-mail";
@@ -178,7 +181,7 @@ if($logarray == $email){
         <div>
             <h1>Seja muito bem-vindo a família Biriter!</h1>
             <p>
-                Ahhhhhh estamos muito feliz em ter você aqui com a gente, já estamos com o nosso drink pronto para brindarmos! E para isso só está 
+                Ahhhhhh estamos muito felizes em ter você aqui com a gente, já estamos com o nosso drink pronto para brindarmos! E para isso só está 
                 faltando uma coisa: confirmar o seu email :) é só clicar no botão que está aqui embaixo!
             </p>
             <a href='http://localhost/Birita/index.html'>
@@ -192,9 +195,9 @@ if($logarray == $email){
         <hr />
             <footer>
                 <div id='social-links'>
-                    <a href='https://www.flaticon.com/br/icones-gratis/facebook' title='facebook ícones'></a>
-                    <img src='img/twitter.png'>
-                    <img src='img/instagram.png'>
+                    <img src='https://iconscout.com/icon-editor?state=XQAAAAKuAAAAAAAAAABt__34xfyFByjbQKgxfXKAYgiEvQYu0UB3AINXI2TQZUeacyuCXHcwLmuQd_kfLOwv6_wCGamQmX7o9s1qMLKACUHjGnsEMVJz3tq5-hq4ZBCysmVC3ACX6EIOMsL9cj3Buuv5uBz4VRo3U0nM3JlRR2JsC0ARqLZaOexcylUQ3RFRJJndlk0gd1Z8PEF5glO6eqr7u0mnU1n7PtZlZNH03EGP9jT5vVMA '>
+                    <img src='https://iconscout.com/icon-editor?state=XQAAAAK-AAAAAAAAAABt__34xfyFByjbQKgxfXKAYgiEvQYu0UB3AINXI2TQZUeacyuCXHcwLmuQd_kfLOwv6_wCGamQmX7o9s1qMLTY5aoC6Hr7c-xuD4UhlAroZA02J0NKKgBL9xu-j3pNmAHDZE5XdLeZRbAc4y6QFdh73bFFy44HM5nyyp58avPkkQfH23kSwNv1V1AyveuEVx0sTGVCtG56V02tnRAYW3ilxuklr-RsAoTRtWDFgQHIbPvwlyT7RvSA '>
+                    <img src='https://iconscout.com/icon-editor?state=XQAAAAK-AAAAAAAAAABt__34xfyFByjbQKgxfXKAYgiEvQYu0UB3AINXI2TQZUeacyuCXHcwLmuQd_kfLOwv6_wCGamQmX7o9s1qMLTY5aoC6Hr7c-xuD4UhlAroZA02J0NKKgBL9xu-j3pNmAHDZE5XdLeZRbAc4y6QFdh73bFFy44HM5nyyp58avPkkQfH23kSwNv1V1Ayve6z7DiIxlKB50SnQZ0jHtiagGaWDhgXBo4gka5k_Dz9BPuxwFlkcP-gNkAA '>
                 </div>
             </footer>
         </div>
@@ -203,7 +206,9 @@ if($logarray == $email){
     </html>");
     if($mail->send()) {
         $objeto['status'] = 'sucesso';
-    echo json_encode($objeto);   
+        echo json_encode($objeto);   
     }
-    }
+}
   }
+    
+?>

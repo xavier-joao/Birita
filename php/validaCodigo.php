@@ -2,16 +2,26 @@
 
 require('config.php');
 
+session_start();
+
 $codigo = $_POST["codigo"];
 
-$sessionEmail = $_SESSION["loggedIn"][2];
-$verify = mysqli_query($conexao, "SELECT codVerificacao FROM usuario WHERE email = '$sessionEmail'") or die("erro ao selecionar");
+$sessionId = $_SESSION["loggedIn"]["id"];
+$status = $_SESSION["loggedIn"]["status"];
+
+
+$verify = mysqli_query($conexao, "SELECT codVerificacao FROM usuario WHERE idUsuario = '$sessionId'");
 $array = mysqli_fetch_array($verify);
 $logarray = $array['codVerificacao'];
 
-if ($logarray == $codigo)
-    echo "<script> alert('Deu bom') </script>";
-else {
-    echo "<script> alert('Deu ruim') </script>";
-}
+
+if (($logarray == $codigo) && ($status == 'autenticacaoLogin')) {
+    $objeto['autenticacao'] = $status;
+    echo json_encode($objeto);
+} else if (($logarray == $codigo) && ($status == 'autenticacaoSenha')) {
+    $objeto['autenticacao'] = $status;
+    echo json_encode($objeto);
+} 
+
+
 ?>

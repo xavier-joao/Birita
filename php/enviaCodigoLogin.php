@@ -19,19 +19,18 @@ $randNum = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
 $mail->CharSet = 'UTF-8';   
 $mail->SMTPDebug = 0;
 $mail->SMTPAuth = true;     
-$mail->SMTPSecure = 'ssl'; 
-    $mail->Host = 'smtp.gmail.com'; 
-$mail->Port = 465;
-
+$mail->SMTPSecure = 'STARTTLS'; 
+$mail->Host = 'smtp-mail.outlook.com'; 
+$mail->Port = 587;
 
 $email = $_POST["emailLogin"];
 $senha = $_POST["senhaHashLogin"];
 
 
     // Detalhes do envio de E-mail
-$mail->Username = 'biritalovers@gmail.com'; 
-$mail->Password = 'biritalovers14';
-$mail->SetFrom('biritalovers@gmail.com', 'Birita');
+$mail->Username = 'biritalovers@hotmail.com'; 
+$mail->Password = 'birita14';
+$mail->SetFrom('biritalovers@hotmail.com', 'Birita');
 
 
 $duration = 3600;
@@ -53,7 +52,8 @@ $verify = mysqli_query($conexao, "SELECT email,senha FROM usuario WHERE email = 
         $_SESSION["loggedIn"] = array(
             "start"=>time(),
             "duration"=>$duration,
-            "user"=>$email
+            "id"=>$logarray,
+            "status"=>'autenticacaoLogin'
 
 
         );
@@ -61,8 +61,10 @@ $verify = mysqli_query($conexao, "SELECT email,senha FROM usuario WHERE email = 
           $mail->Subject = "Autenticaçâo de login";
           $mail->msgHTML('<h1>Seu código de verificação:</h1><br>' .$randNum);
           if($mail->send()){
-            //echo"bala";
             
+          } else {
+            echo "caralhoooooo";
           }
+          
       }
 ?>
