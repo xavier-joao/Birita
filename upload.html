@@ -7,22 +7,92 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="js/scriptLogin&Cadastro.js"></script>
-    <link rel="stylesheet" href="css/styleLoginCadastro.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-      </head>
-    <body>
-<form action="php/uploadBiblioteca.php" method="post" enctype="multipart/form-data">
+    <link rel="stylesheet" href="css/styleUpload.css">
+</head>
+<body>
+    
+            <div class="navbarBiblioteca">
+                <div class="navbar nav-fill">
+                <a href="index.html"><img src="img/logo.png" class="logo"></a>
+                    <nav>
+                        <ul id="menuList">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="indexLogin.html">Login</a></li>
+                        <li><a href="indexCadastro.html">Cadastro</a></li>
+                        </ul>
+                    </nav>
+                <img src="img/menu.png" class="menu-icon" onclick="togglemenu()">
+                    <script>
 
-    Imagem da sua receita:
-    <br>
-    <input type="file" name="imagemReceita" id="imagemReceita"> <br>
-    Título da sua receita:<input type="text" name="inputTitulo"> <br>
-    Como fazer a receita: <input type="text" name="inputDescricao"> <br>
-    Ingredientes da receita: <input type="text" name="inputTags"> <br>
-    <input type="submit">
+                        var menuList = document.getElementById("menuList");
+                    
+                        menuList.style.maxHeight = "0px";
+                    
+                        function togglemenu(){
+                        if(menuList.style.maxHeight == "0px"){
+                            menuList.style.maxHeight = "130px"
+                        }else{
+                            menuList.style.maxHeight = "0px";
+                        }
+                        }
+                    </script>
+        </div>
+    </div>
+    <div class="container">
 
-    </form>
+        <div class=" text-center mt-2 mb-2 titulo ">
+
+            <h1 >Digite sua receitinha aqui! :)</h1>
+                
+            
+        </div>
+<div class="col2">
+        <div class="row">
+        <div class="col-lg-7 mx-auto">
+            <div class="box-shadow shadow p-3 mb-5 bg-white rounded mt-2 mx-auto p-4 bg-light">
+                    <div class = "container-md">
+                        <form action="php/uploadBiblioteca.php" method="post" enctype="multipart/form-data">
+                        <div class="controls">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_name">Título da sua receita: *</label>
+                                        <input id="form_name" type="text" name="inputTitulo" class="form-control" placeholder="Insira o título aqui *" required="required" data-error="O título é obrigatório!">
+                                    </div>
+                                </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="imagemReceita">Coloque sua imagem aqui: *</label>
+                                    <input type="file" name="imagemReceita" id="imagemReceita" class="form-control-file" >
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="formTags">Ingredientes da receita: *</label>
+                                    <input id="formTags" name="inputTags" class="form-control" placeholder="Insira os ingredientes necessários. *" required="required" data-error="Ingredientes são obrigatórios em uma receita!">
+                                </div>
+                            </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="formReceita">Como fazer a receita: *</label>
+                                <textarea id="formReceita" name="inputDescricao" class="form-control" placeholder="Escreva como fazer sua receita aqui." rows="4" required="required" data-error="Não esqueça de escrever como fazer a receita!"></textarea>
+                                </div>
+                            </div>
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-info btn-send  pt-2" value="Enviar Receita" >
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
 </body>
     </html>

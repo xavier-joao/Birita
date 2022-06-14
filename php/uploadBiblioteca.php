@@ -1,6 +1,8 @@
 <?php
 include("config.php");
 
+session_start();
+
 $nomereceita = $_POST['inputTitulo'];
 $descricaoreceita = $_POST['inputDescricao'];
 $tagsreceita = $_POST['inputTags'];
@@ -15,20 +17,25 @@ if (move_uploaded_file($_FILES['imagemReceita']['tmp_name'], $saveFile)){
 	echo "Descrição da receita: ".$descricaoreceita."<br>";
 	echo "Ingredientes da receita: ".$tagsreceita."<br>";
 } else {
-	echo "Upload Did Not Work<a href='./biblioteca.php'> Voltar</a>";
+	$_SESSION['status'] = "ERRO: Algum dos valores inseridos não é válido :(";
+	header("Location: https://localhost/Birita/biblioteca.php");
 }
 
 $sql = "insert into receita(nomereceita, tagsreceita, descricaoreceita, imagemreceita)values('$nomereceita','$tagsreceita','$descricaoreceita', '$saveFile')";
+$query_run = mysqli_query($conexao, $sql);
 
-if ($conexao->query($sql)=== TRUE){	
-	echo "Database Worked";
+if ($query_run){	
+	$_SESSION['status'] = "<strong>Hey!</strong> Receita enviada com sucesso ;)";
+	header("Location: https://localhost/Birita/biblioteca.php");
 } else {
-	echo "error";
+	$_SESSION['status'] = "ERRO: Algum dos valores inseridos não é válido :(";
+	header("Location: https://localhost/Birita/biblioteca.php");
 }
 
 echo "<h3>Diagnostic Info:</h3>";
 echo "<br>Tmp File Name: ".$_FILES['imagemReceita']['tmp_name']."<br>";
 echo "saveFile Variable Valuable: ".$saveFile;
+exit();
 ?>
 
 <h1><a href="../biblioteca.php">Voltar para drincoteca</a></h1> 

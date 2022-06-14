@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+session_start();
 include("php/fetchBiblioteca.php"); 
 ?>
 <html>
@@ -41,9 +42,26 @@ include("php/fetchBiblioteca.php");
     }
   </script>
   </div>
-  
+  <div class="alertaEnvio d-flex justify-content-center">
+  <?php
+    if(isset($_SESSION['status'])){
+        ?>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert"> 
+            <?php
+                echo $_SESSION['status'];
+            ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        
+        <?php
+       
+        unset($_SESSION['status']);
+    }
+    ?>
+  </div>
     </div>
-  
         <div class="row d-flex justify-content-center">
             <div class="col-10">
                 <span class="d-flex tituloDrincoteca justify-content-center p-4 h1">Drincoteca</span>
@@ -52,7 +70,7 @@ include("php/fetchBiblioteca.php");
                         <div class="input-group m-2 w-100">
                             <input type="text" class="form-control" id="search" placeholder="Digite aqui seus ingredientes" aria-label="Digite aqui" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-info" href="upload.html" type="button" >Adicionar Receita</button>
+                                <a href="upload.html"><button class="btn btn-outline-info"  type="button" >Adicionar Receita</button></a>
                                 <button class="btn btn-outline-info" id="searchButton" type="button">Buscar</button>
                             </div>
                         </div>   
