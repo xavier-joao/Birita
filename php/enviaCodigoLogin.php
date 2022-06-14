@@ -47,16 +47,20 @@ $verify = mysqli_query($conexao, "SELECT email,senha FROM usuario WHERE email = 
         $array = mysqli_fetch_array($buscaId);
         $logarray = $array['idUsuario'];
 
+        $nome = mysqli_query($conexao, "SELECT nome FROM usuario WHERE idUsuario = '$logarray'");
 
         $salvaCodigo = mysqli_query($conexao, "UPDATE usuario SET codVerificacao = '$randNum' where idUsuario = '$logarray'");
         $_SESSION["loggedIn"] = array(
             "start"=>time(),
             "duration"=>$duration,
             "id"=>$logarray,
+            "nome"=>$nome,
             "status"=>'autenticacaoLogin'
-
-
         );
+
+        $objeto['nome'] = $_SESSION["loggedIn"]["nome"];
+        echo json_encode($objeto); 
+        
         $mail->addAddress($email,'');
           $mail->Subject = "Autenticaçâo de login";
           $mail->msgHTML('<h1>Seu código de verificação:</h1><br>' .$randNum);

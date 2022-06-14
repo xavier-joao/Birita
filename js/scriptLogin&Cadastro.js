@@ -1,3 +1,18 @@
+window.onload = function() {
+    var nomeLogado = "";
+    $.ajax({
+        type: "GET",
+        url: "php/enviaCodigoLogin.php",
+        success:function(retorno){
+            nomeLogado = retorno.nome;
+        },
+        error:function(e) {
+            console.log(e)
+        }
+    });
+    document.getElementById("usuarioLogado") = "Olá, " + nomeLogado;
+}
+
 async function login(){
     var email = document.getElementById("emailLogin").value
     var senha = document.getElementById("senhaLogin").value
