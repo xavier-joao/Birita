@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "helvetica", sans-serif;
+    box-sizing: border-box;
+}
+/* #################### CABEÇALHO ####################  */ 
+.container{
+    width: 100%;
+    min-height: 100vh;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-image: linear-gradient(#3ab9cfa7, #9b4fe34a, #f9fdff36);
+}
+
+.navbar{
+    width: 105%;
+    display: flex;
+    align-items: center;
+    background-color: #f9fdff;
+    margin-left: -4%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.logo{
+    float: left;
+    width: 200px;
+    cursor: pointer;
+    margin: 30px 0;
+
+
+}
+.menu-icon{
+    width: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #3AB9CF;
+    font-size: larger;
+}
+
+
+nav ul li a:hover{
+    color: #9B4FE3;
+}
+
+
+/* #################### RESPONSIVIDADE CABEÇALHO####################  */ 
+
+
+@media only screen and (max-width:700px){
+    .menu-icon{
+        display: block;
+    }
+
+    nav ul{
+        width: 100%;
+        position: absolute;
+        top: 82px;
+        right:0;
+        left:0;
+        z-index: 2;
+        
+    }
+
+    .navbar{
+        padding-bottom: 8vh;
+    }
+
+    .navbar li a::after{
+        display: none;
+        height: 0px;
+    }
+
+    nav ul li{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #menuList{
+        overflow: hidden;
+        transition: 0.5s;
+    }
+}
+
+/* FORMULARIO DE ENVIO */
+.titulo h1{
+    font-size: 30px;
+    font-weight: bold;
+    color: white
+}
+
+.btn {
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #f3faf7;
+    font-size: 10px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 150px;
+    align-self: center;
+    align-items: center;
+    border: none;
+    margin-top: 1rem;
+}
+
+
