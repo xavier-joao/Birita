@@ -21,7 +21,11 @@ if (($logarray == $codigo) && ($status == 'autenticacaoLogin')) {
 } else if (($logarray == $codigo) && ($status == 'autenticacaoSenha')) {
     $objeto['autenticacao'] = $status;
     echo json_encode($objeto);
-} 
+} else if (($logarray == $codigo) && ($status == 'validacaoUsuario')) {
+    $ativaUsuario = mysqli_query($conexao, "UPDATE usuario SET ativo = 1 where idUsuario = '$logarray'");
+    $objeto['autenticacao'] = $status;
+    echo json_encode($objeto);
+}
 
 
 ?>

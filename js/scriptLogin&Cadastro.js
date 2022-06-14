@@ -27,7 +27,14 @@ async function login(){
             data: dados,
             url: "php/enviaCodigoLogin.php",
             success:function(retorno) {
-                window.location.href='indexCodigo.html'
+                if(retorno.statusLogin == 'usuarioInvalido'){
+                    alertaModal("Usuário ou senha inválidos")
+                } else if (retorno.statusLogin == 'verificacaoLogin') {
+                    window.location.href='indexCodigo.html'
+                } else if (retorno.statusLogin == 'sucesso') {
+                    window.location.href='indexCodigo.html'
+                }
+                
             }
         });
 
@@ -66,7 +73,7 @@ function cadastro(){
                             if(retorno.status == 'emailCadastrado') {
                                 alertaModal('Email já cadastrado!')
                             } else if (retorno.status == 'sucesso') {
-                                alertaModal('Cadastro realizado com sucesso!')
+                                modalConfirmacao()
                             }
                         },
                         error:function(e){
@@ -143,6 +150,12 @@ function enviaCodigoRecuperacao() {
 
 }
 
+function modalConfirmacao () {
+    var myModal = new bootstrap.Modal(document.getElementById('promptModal'))
+        document.getElementById("modalBody").innerHTML = '<h7>' + "Cadastro realizado com sucesso, agora precisamos validar ele com o código que enviamos para o seu email!! Ahh, não esquece de olhar o spam :)";
+        myModal.show()
+}
+
 
 function alertaModal (texto) {
     var myModal = new bootstrap.Modal(document.getElementById('promptModal'))
@@ -164,7 +177,9 @@ function validaCodigo(){
                 window.location.href='index.html'
             } else if (retorno.autenticacao == 'autenticacaoSenha') {
                 window.location.href='indexNovaSenha.html'
-            }  
+            } else if(retorno.autenticacao == 'validacaoUsuario') {
+                window.location.href='index.html'
+            }
         },
         error:function(e){
             console.log(e)
