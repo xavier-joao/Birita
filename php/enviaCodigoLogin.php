@@ -49,12 +49,14 @@ $verify = mysqli_query($conexao, "SELECT email,senha FROM usuario WHERE email = 
             $logarray = $array['idUsuario'];
 
             $salvaCodigo = mysqli_query($conexao, "UPDATE usuario SET codVerificacao = '$randNum' where idUsuario = '$logarray'");
-
+            $NameSearch = mysqli_query($conexao, "SELECT nome FROM usuario WHERE idusuario = '$logarray'");
+            $name = mysqli_fetch_array($NameSearch);
             $_SESSION["loggedIn"] = array(
                 "start"=>time(),
                 "duration"=>$duration,
                 "id"=>$logarray,
-                "status"=>'validacaoUsuario'
+                "status"=>'validacaoUsuario',
+                "nome"=>$name
             );
 
             $mail->addAddress($email,'');
@@ -70,13 +72,15 @@ $verify = mysqli_query($conexao, "SELECT email,senha FROM usuario WHERE email = 
             $buscaId = mysqli_query($conexao, "SELECT idUsuario FROM usuario WHERE email = '$email'");
             $array = mysqli_fetch_array($buscaId);
             $logarray = $array['idUsuario'];
-
+            $NameSearch = mysqli_query($conexao, "SELECT nome FROM usuario WHERE idusuario = '$logarray'");
+            $name = mysqli_fetch_array($NameSearch);
             $salvaCodigo = mysqli_query($conexao, "UPDATE usuario SET codVerificacao = '$randNum' where idUsuario = '$logarray'");
             $_SESSION["loggedIn"] = array(
                 "start"=>time(),
                 "duration"=>$duration,
                 "id"=>$logarray,
-                "status"=>'autenticacaoLogin'
+                "status"=>'autenticacaoLogin',
+                "nome"=>$name
             );
             
             $mail->addAddress($email,'');

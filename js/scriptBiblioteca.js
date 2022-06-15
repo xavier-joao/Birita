@@ -1,4 +1,4 @@
-    $(document).ready(function(){
+        $(document).ready(function(){
         $("#searchButton").click(function(){
             var input = $("#search").val();
 

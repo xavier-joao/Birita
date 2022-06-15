@@ -52,13 +52,14 @@ $verifyEmail = mysqli_query($conexao, "SELECT email FROM usuario WHERE email = '
 
 
         $salvaCodigo = mysqli_query($conexao, "UPDATE usuario SET codVerificacao = '$randNum' where idUsuario = '$logarray'");
-        
+        $nome = $_POST["nome"];
 
         $_SESSION["loggedIn"] = array(
             "start"=>time(),
             "duration"=>$duration,
             "id"=>$logarray,
-            "status"=>'autenticacaoSenha'
+            "status"=>'autenticacaoSenha',
+            "nome"=>$nome
         );
         $mail->addAddress($emailRecuperacao,'');
         $mail->Subject = "Recuperação de Senha";

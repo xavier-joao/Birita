@@ -76,6 +76,29 @@ function cadastro(){
     }
 }
 
+function logout(){
+    console.log("aaaaaaaaaaaaaa")
+    $.ajax({
+            type: "GET",
+            dataType: "json",
+            //data: data,
+            url: "php/logout.php", 
+            success: function(retorno){
+                console.log(retorno);
+
+                if(retorno.logged == "false"){
+                    location.href = "index.html";
+                }
+               
+            },
+            error: function(err){
+                console.log(err);
+                
+            }
+            
+    });
+}
+
 function recuperaSenha(){
     
     var senha = document.getElementById("novaSenha").value

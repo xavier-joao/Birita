@@ -9,7 +9,6 @@ $codigo = $_POST["codigo"];
 $sessionId = $_SESSION["loggedIn"]["id"];
 $status = $_SESSION["loggedIn"]["status"];
 
-
 $verify = mysqli_query($conexao, "SELECT codVerificacao FROM usuario WHERE idUsuario = '$sessionId'");
 $array = mysqli_fetch_array($verify);
 $logarray = $array['codVerificacao'];
