@@ -1,5 +1,7 @@
 <!doctype html>
-
+<?php
+session_start();
+?>
 <html lang="pt">
 <head>
   <meta charset="utf-8">
@@ -10,9 +12,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="HandheldFriendly" content="true">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
   <link rel="stylesheet" href="css\style.css">
   <script src="js/script-main-page.js"></script>
+  
   <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
 </head>
 
@@ -21,13 +26,25 @@
 
   <div class="container">
     <div class="navbar">
-      <a href="index.html"><img src="img/logo.png" class="logo"></a>
+      <a href="index.php"><img src="img/logo.png" class="logo"></a>
       <nav>
         <ul id="menuList">
+          <li><a href="index.php">Home</a></li>
           <li><a href="biblioteca.php">Drincoteca</a></li>
+
+          <?php  
+            error_reporting(E_ERROR | E_PARSE);
+            $id = $_SESSION['loggedIn'];
+            if(isset($id["nome"][0])){ ?>
+            <li><a> Olá <?php echo $id["nome"][0]?></a>  
+            <li><a><button onclick="logout()">Sair</button></a> </li>
+
+            </li>
+            <?php
+            } else {?>
           <li><a href="indexLogin.html">Login</a></li>
           <li><a href="indexCadastro.html">Cadastro</a></li>
-          <li><a id="usuarioLogado"></a></li>
+          <?php } ?>
         </ul>
       </nav>
       <img src="img/menu.png" class="menu-icon" onclick="togglemenu()">
@@ -56,6 +73,7 @@
     <img src="img/ig.png">
   </div>
 </div>
+<script src="js/scriptLogin&Cadastro.js"></script>
 
 
   <script>

@@ -87,7 +87,7 @@ function logout(){
                 console.log(retorno);
 
                 if(retorno.logged == "false"){
-                    location.href = "index.html";
+                    location.href = "index.php";
                 }
                
             },
@@ -181,12 +181,12 @@ function validaCodigo(){
         success:function(retorno) {
             console.log(retorno)
             if(retorno.autenticacao == 'autenticacaoLogin') {
-                window.location.href='index.html'
+                window.location.href='index.php'
             } else if (retorno.autenticacao == 'autenticacaoSenha') {
                 window.location.href='indexNovaSenha.html'
             } else if (retorno.autenticacao == 'validacaoUsuario') {
                 console.log("Entrouuu")
-                window.location.href='index.html'
+                window.location.href='index.php'
             }
         },
         error:function(e){

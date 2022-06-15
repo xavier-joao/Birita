@@ -18,16 +18,16 @@ include("php/fetchBiblioteca.php");
     <div class="container">
     <div class="navbarBiblioteca">
     <div class="navbar nav-fill">
-      <a href="index.html"><img src="img/logo.png" class="logo"></a>
+      <a href="index.php"><img src="img/logo.png" class="logo"></a>
       <nav>
         <ul id="menuList">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <?php  
             error_reporting(E_ERROR | E_PARSE);
             $id = $_SESSION['loggedIn'];
             if(isset($id["nome"][0])){ ?>
             <li><a> Olá <?php echo $id["nome"][0]?></a>  
-            <li> <button onclick="logout()" class="btn btn-info">Sair</button> </li>
+            <li><a><button onclick="logout()">Sair</button></a></li>
 
             </li>
             <?php
