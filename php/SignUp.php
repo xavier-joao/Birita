@@ -4,6 +4,7 @@ session_start();
 
 $digits = 5;
 $randNum = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
+$duration = 3600;
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
@@ -65,7 +66,7 @@ if(!empty($array)){
 
         $_SESSION["loggedIn"] = array(
             "start"=>time(),
-            "duration"=>$duration,
+            "duration"=>60*60*1800,
             "id"=>$logarray,
             "status"=>'validacaoUsuario'
         );
