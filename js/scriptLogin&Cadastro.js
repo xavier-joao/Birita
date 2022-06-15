@@ -1,18 +1,3 @@
-window.onload = function() {
-    var nomeLogado = "";
-    $.ajax({
-        type: "GET",
-        url: "php/enviaCodigoLogin.php",
-        success:function(retorno){
-            nomeLogado = retorno.nome;
-        },
-        error:function(e) {
-            console.log(e)
-        }
-    });
-    document.getElementById("usuarioLogado") = "Olá, " + nomeLogado;
-}
-
 async function login(){
     var email = document.getElementById("emailLogin").value
     var senha = document.getElementById("senhaLogin").value
@@ -25,16 +10,15 @@ async function login(){
         $.ajax({
             type: "POST",
             data: dados,
+            dataType: "JSON",
             url: "php/enviaCodigoLogin.php",
             success:function(retorno) {
                 if(retorno.statusLogin == 'usuarioInvalido'){
                     alertaModal("Usuário ou senha inválidos")
-                } else if (retorno.statusLogin == 'verificacaoLogin') {
+                } else if ((retorno.statusLogin == 'verificacaoUsuario') || (retorno.statusLogin == 'sucesso')) {
+                    console.log("Entou");
                     window.location.href='indexCodigo.html'
-                } else if (retorno.statusLogin == 'sucesso') {
-                    window.location.href='indexCodigo.html'
-                }
-                
+                } 
             }
         });
 
@@ -151,7 +135,7 @@ function enviaCodigoRecuperacao() {
 }
 
 function modalConfirmacao () {
-    var myModal = new bootstrap.Modal(document.getElementById('promptModal'))
+    var myModal = new bootstrap.Modal(document.getElementById('modalConfirmacao'))
         document.getElementById("modalBody").innerHTML = '<h7>' + "Cadastro realizado com sucesso, agora precisamos validar ele com o código que enviamos para o seu email!! Ahh, não esquece de olhar o spam :)";
         myModal.show()
 }
@@ -177,7 +161,8 @@ function validaCodigo(){
                 window.location.href='index.html'
             } else if (retorno.autenticacao == 'autenticacaoSenha') {
                 window.location.href='indexNovaSenha.html'
-            } else if(retorno.autenticacao == 'validacaoUsuario') {
+            } else if (retorno.autenticacao == 'validacaoUsuario') {
+                console.log("Entrouuu")
                 window.location.href='index.html'
             }
         },

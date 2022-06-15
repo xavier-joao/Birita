@@ -34,7 +34,7 @@ $mail->SetFrom('biritalovers@hotmail.com', 'Birita');
 
 $buscaAtivo = mysqli_query($conexao, "SELECT ativo FROM usuario WHERE email = '$email'");
 $arrayStatus = mysqli_fetch_array($buscaAtivo);
-$logarrayStatus = $arrayStatus['idUsuario'];
+$logarrayStatus = $arrayStatus['ativo'];
 
 $duration = 3600;
 
@@ -61,39 +61,33 @@ $verify = mysqli_query($conexao, "SELECT email,senha FROM usuario WHERE email = 
             $mail->Subject = "Confirmação de email";
             $mail->msgHTML('<h1>Seu código de verificação:</h1><br>' .$randNum);
             if($mail->send()){
-                $objeto['statusLogin'] = 'verificacaoLogin';
+                $objeto['statusLogin'] = 'verificacaoUsuario';
                 echo json_encode($objeto);
             } else {
                 echo "erro usuário inativo";
             }
         } else if ($logarrayStatus == 1) {
             $buscaId = mysqli_query($conexao, "SELECT idUsuario FROM usuario WHERE email = '$email'");
-        $array = mysqli_fetch_array($buscaId);
-        $logarray = $array['idUsuario'];
+            $array = mysqli_fetch_array($buscaId);
+            $logarray = $array['idUsuario'];
 
-        $nome = mysqli_query($conexao, "SELECT nome FROM usuario WHERE idUsuario = '$logarray'");
-
-        $salvaCodigo = mysqli_query($conexao, "UPDATE usuario SET codVerificacao = '$randNum' where idUsuario = '$logarray'");
-        $_SESSION["loggedIn"] = array(
-            "start"=>time(),
-            "duration"=>$duration,
-            "id"=>$logarray,
-            "nome"=>$nome,
-            "status"=>'autenticacaoLogin'
-        );
-
-        $objeto['nome'] = $_SESSION["loggedIn"]["nome"];
-        echo json_encode($objeto); 
-        
-        $mail->addAddress($email,'');
-          $mail->Subject = "Autenticaçâo de login";
-          $mail->msgHTML('<h1>Seu código de verificação:</h1><br>' .$randNum);
-          if($mail->send()){
-            $objeto['statusLogin'] = 'sucesso';
-            echo json_encode($objeto);
-          } else {
-            echo "erro usuário ativo";
-          }
+            $salvaCodigo = mysqli_query($conexao, "UPDATE usuario SET codVerificacao = '$randNum' where idUsuario = '$logarray'");
+            $_SESSION["loggedIn"] = array(
+                "start"=>time(),
+                "duration"=>$duration,
+                "id"=>$logarray,
+                "status"=>'autenticacaoLogin'
+            );
+            
+            $mail->addAddress($email,'');
+            $mail->Subject = "Autenticaçâo de login";
+            $mail->msgHTML('<h1>Seu código de verificação:</h1><br>' .$randNum);
+            if($mail->send()){
+                $objeto['statusLogin'] = 'sucesso';
+                echo json_encode($objeto);
+            } else {
+                echo "erro usuário ativo";
+            }
         } 
       }
 ?>
