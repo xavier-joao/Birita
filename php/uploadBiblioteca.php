@@ -38,4 +38,3 @@ echo "saveFile Variable Valuable: ".$saveFile;
 exit();
 ?>
 
-<h1><a href="../biblioteca.php">Voltar para drincoteca</a></h1> 

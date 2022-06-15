@@ -68,13 +68,13 @@ if(!empty($array)){
             "start"=>time(),
             "duration"=>60*60*1800,
             "id"=>$logarray,
-            "status"=>'validacaoUsuario'
+            "status"=>'validacaoUsuario',
+            "nome"=>$nome
         );
-        
         $objeto['status'] = 'sucesso';
         echo json_encode($objeto);   
     }
 }
-  }
+}
     
 ?>

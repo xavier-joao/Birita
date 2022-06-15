@@ -22,8 +22,16 @@ include("php/fetchBiblioteca.php");
       <nav>
         <ul id="menuList">
           <li><a href="index.html">Home</a></li>
+          <?php  
+            $id = $_SESSION['loggedIn'];
+            if(isset($id["nome"])){ ?>
+            <li> Olá <?php echo $id["nome"]?> </li>
+
+            <?php
+            } else {?>
           <li><a href="indexLogin.html">Login</a></li>
           <li><a href="indexCadastro.html">Cadastro</a></li>
+          <?php } ?>
         </ul>
       </nav>
       <img src="img/menu.png" class="menu-icon" onclick="togglemenu()">
@@ -70,7 +78,11 @@ include("php/fetchBiblioteca.php");
                         <div class="input-group m-2 w-100">
                             <input type="text" class="form-control" id="search" placeholder="Digite aqui seus ingredientes" aria-label="Digite aqui" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <a href="upload.html"><button class="btn btn-outline-info"  type="button" >Adicionar Receita</button></a>
+                                <?php 
+                                $id = $_SESSION['loggedIn'];
+                                if($id["id"] == "6"){?>
+                                <a href="upload.html"><button class="btn btn-outline-info"  type="button" >Adicionar Receita</button></a>  
+                                <?php }?>
                                 <button class="btn btn-outline-info" id="searchButton" type="button">Buscar</button>
                             </div>
                         </div>   

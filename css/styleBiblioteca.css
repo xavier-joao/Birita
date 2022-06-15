@@ -59,6 +59,12 @@ nav ul li a{
     font-size: larger;
 }
 
+nav ul li{
+    text-decoration: none;
+    color: #9B4FE3;
+    font-size: larger;
+}
+
 
 nav ul li a:hover{
     color: #9B4FE3;
