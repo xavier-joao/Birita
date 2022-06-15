@@ -27,7 +27,7 @@ include("php/fetchBiblioteca.php");
             $id = $_SESSION['loggedIn'];
             if(isset($id["nome"][0])){ ?>
             <li><a> Olá <?php echo $id["nome"][0]?></a>  
-            <button onclick="logout()" class="btn btn-link">Sair</button> 
+            <li> <button onclick="logout()" class="btn btn-info">Sair</button> </li>
 
             </li>
             <?php
