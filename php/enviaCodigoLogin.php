@@ -39,6 +39,7 @@ $logarrayStatus = $arrayStatus['ativo'];
 $duration = 3600;
 
 $verify = mysqli_query($conexao, "SELECT email,senha FROM usuario WHERE email = '$email' AND senha = '$senha'") or die("erro ao selecionar");
+
     if (mysqli_num_rows($verify) <= 0){
         $objeto['statusLogin'] = 'usuarioInvalido';
         echo json_encode($objeto);

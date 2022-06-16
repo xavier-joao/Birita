@@ -72,13 +72,13 @@
                         });
                         </script>
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Senha" id="senha" name="senha" data-bs-toggle="popover" title="Senha biriter tem que conter: " data-bs-content="No mínimo 8 caracteres, sendo obrigatório, no mínimo, um número, uma letra maiúscula e minúscula e um caracter especial.">
+                        <input type="password" placeholder="Senha" id="senha" name="senha"  data-bs-toggle="popover" title="Senha biriter tem que conter: " data-bs-content="No mínimo 8 caracteres, sendo obrigatório, no mínimo, um número, uma letra maiúscula e minúscula e um caracter especial.">
 
                     </label>
                   
                     <label class="label-input" for="">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Confirme sua senha" id="confirmSenha">
+                        <input type="password" placeholder="Confirme sua senha" id="confirmSenha" >
                     </label>
                     
                     <button type="button" class="btn btn-second" onclick="cadastro()">Cadastrar</button>        
@@ -93,9 +93,23 @@
             <div class="modal-header">
               <h5 class="modal-title" id="promptModalLabel">Aviso</h5>
             </div>
-            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-body" id="confirmbody"></div>
             <div class="modal-footer">
               <button type="button" class="btn btn-second" onclick="location.href='indexCodigo.html'" data-bs-dismiss="modal">Continuar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="promptModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="promptModalLabel">Aviso</h5>
+            </div>
+            <div class="modal-body" id="modalBodyy"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-second" data-bs-dismiss="modal">Continuar</button>
             </div>
           </div>
         </div>

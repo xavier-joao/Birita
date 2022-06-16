@@ -23,9 +23,9 @@ include("php/fetchBiblioteca.php");
         <ul id="menuList">
           <li><a href="index.php">Home</a></li>
           <?php  
-            error_reporting(E_ERROR | E_PARSE);
+            //error_reporting(E_ERROR | E_PARSE);
             $id = $_SESSION['loggedIn'];
-            if(isset($id["nome"][0])){ ?>
+            if(isset($id["nome"])){ ?>
             <li><a> Olá <?php echo $id["nome"][0]?></a>  
             <li><a><button onclick="logout()">Sair</button></a></li>
 
@@ -83,7 +83,7 @@ include("php/fetchBiblioteca.php");
                             <div class="input-group-append">
                                 <?php 
                                 $id = $_SESSION['loggedIn'];
-                                if($id["id"] == "8"){?>
+                                if($id["id"] == "14"){?>
                                 <a href="upload.html"><button class="btn btn-outline-info"  type="button" >Adicionar Receita</button></a>  
                                 <?php }?>
                                 <button class="btn btn-outline-info" id="searchButton" type="button">Buscar</button>
